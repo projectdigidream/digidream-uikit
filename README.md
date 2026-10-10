@@ -47,6 +47,7 @@ The format is in [SKIN_FORMAT.md](SKIN_FORMAT.md). How the tools adopt it is in 
 | `lib/kit.js`, `lib/kit.css` | DOM builders and structural CSS for the components |
 | `catalog/icons.json` | every icon id, its meaning, where it is used, today's glyph |
 | `skins/claude/` | the base skin and the unified proposal; every other skin extends it |
+| `skins/paper/` | modern and light-first: warm paper, ink text, terracotta accent, soft shadows, serif headings, line icons; modes day and night |
 | `skins/90s/` | desktop software of the late 90s: bevels, title bars, pixel icons; modes classic and night |
 | `skins/ps1/` | late-90s 3D console menus: blue gradient windows, hand cursor, dither, scanlines; modes dark and console |
 | `skins/sample/` | how a skin is made: a few tokens, 14 icons, a 9-slice button |
