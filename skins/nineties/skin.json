@@ -1,0 +1,646 @@
+{
+  "format": "dnp-skin",
+  "version": 1,
+  "id": "nineties",
+  "name": "Nineties",
+  "about": "Desktop software, 1995-1999: grey bevels, navy title bars, Tahoma, dithered toggles, the 16 VGA colours, a white map like the old DOOM editors and green-on-black waveforms. Two modes: classic, and night (a high-contrast scheme).",
+  "extends": "default",
+
+  "tokens": {
+    "color": {
+      "bg": {
+        "app": "#c0c0c0", "rail": "#808080", "panel": "#c0c0c0", "raised": "#c0c0c0", "hover": "#c0c0c0",
+        "input": "#ffffff", "overlay": "#c0c0c0", "code": "#ffffff", "sunken": "#ffffff"
+      },
+      "line": { "soft": "#dfdfdf", "main": "#808080", "strong": "#000000" },
+      "text": { "primary": "#000000", "secondary": "#000000", "dim": "#808080", "inverse": "#ffffff" },
+      "accent": "#000080",
+      "accentHover": "#000080",
+      "accentInk": "#ffffff",
+      "select": "#0000ff",
+      "playhead": "#ff0000",
+      "ok": "#008000",
+      "warn": "#808000",
+      "error": "#c00000",
+      "info": "#000080",
+      "guide": "#ff00ff",
+      "wave": "#00ff00",
+      "scrim": "rgba(0,0,0,.18)",
+      "tone": { "when": "#808000", "if": "#000080", "then": "#008000" },
+      "node": { "event": "#800000", "condition": "#808000", "action": "#000080", "flow": "#808080", "data": "#008000", "camera": "#800080" },
+      "marker": { "spawn": "#008000", "light": "#808000", "monster": "#ff0000", "prop": "#0000ff" },
+      "path": "#800080",
+      "pathActive": "#ff00ff",
+      "checker": { "a": "#ffffff", "b": "#c0c0c0" },
+      "keys": { "white": "#ffffff", "black": "#000000" },
+
+      "bevel": { "hi": "#ffffff", "light": "#dfdfdf", "shadow": "#808080", "dark": "#000000" },
+      "title": { "a": "#000080", "b": "#1084d0", "ink": "#ffffff" },
+      "desktop": "#008080",
+      "tooltip": "#ffffe1",
+      "lcd": "#000000",
+      "lcdInk": "#00ff00",
+      "canvas": { "bg": "#ffffff", "ink": "#000000", "fill": "#e8e8e8", "grid": "#e4e4e4", "gridMajor": "#b0b0b0" }
+    },
+    "font": {
+      "ui": "Tahoma, \"MS Sans Serif\", Geneva, Verdana, sans-serif",
+      "mono": "\"Courier New\", Courier, monospace",
+      "display": "\"Arial Black\", Impact, Tahoma, sans-serif"
+    },
+    "size": {
+      "tiny": 10, "small": 11, "body": 11, "large": 12, "title": 13, "hero": 22,
+      "hit": 23, "hitSmall": 20, "icon": 16, "iconSmall": 16
+    },
+    "weight": { "normal": 400, "strong": 400, "heavy": 700 },
+    "radius": { "small": 0, "control": 0, "card": 0, "dialog": 0, "sheet": 0, "pill": 0 },
+    "space": { "xs": 2, "sm": 4, "md": 6, "lg": 10, "xl": 16 },
+    "bevel": {
+      "out": "inset -1px -1px $color.bevel.dark, inset 1px 1px $color.bevel.hi, inset -2px -2px $color.bevel.shadow, inset 2px 2px $color.bevel.light",
+      "in": "inset -1px -1px $color.bevel.hi, inset 1px 1px $color.bevel.dark, inset -2px -2px $color.bevel.light, inset 2px 2px $color.bevel.shadow",
+      "field": "inset -1px -1px $color.bevel.hi, inset 1px 1px $color.bevel.shadow, inset -2px -2px $color.bevel.light, inset 2px 2px $color.bevel.dark",
+      "thinOut": "inset -1px -1px $color.bevel.shadow, inset 1px 1px $color.bevel.hi",
+      "thinIn": "inset -1px -1px $color.bevel.hi, inset 1px 1px $color.bevel.shadow",
+      "default": "inset 0 0 0 1px $color.bevel.dark, inset -2px -2px $color.bevel.dark, inset 2px 2px $color.bevel.hi, inset -3px -3px $color.bevel.shadow, inset 3px 3px $color.bevel.light",
+      "etched": "0 1px 0 $color.bevel.hi"
+    },
+    "pattern": {
+      "dither": "repeating-conic-gradient($color.bevel.hi 0 25%, $color.bg.raised 0 50%) 0 0 / 2px 2px",
+      "title": "linear-gradient(90deg, $color.title.a, $color.title.b)",
+      "blocks": "repeating-linear-gradient(90deg, $color.accent 0 8px, transparent 8px 10px)",
+      "leds": "repeating-linear-gradient(90deg, transparent 0 3px, $color.lcd 3px 4px), linear-gradient(90deg, #00ff00 0%, #00ff00 70%, #ffff00 85%, #ff0000 100%)"
+    },
+    "shadow": {
+      "raised": "$bevel.thinOut",
+      "menu": "$bevel.out",
+      "sheet": "$bevel.out",
+      "toast": "none"
+    },
+    "motion": { "fast": "0s" }
+  },
+
+  "modes": {
+    "dark": null,
+    "light": null,
+    "classic": {},
+    "night": {
+      "color": {
+        "bg": {
+          "app": "#383838", "rail": "#000000", "panel": "#383838", "raised": "#383838", "hover": "#383838",
+          "input": "#000000", "overlay": "#383838", "code": "#000000", "sunken": "#000000"
+        },
+        "line": { "soft": "#4a4a4a", "main": "#808080", "strong": "#c0c0c0" },
+        "text": { "primary": "#ffffff", "secondary": "#ffffff", "dim": "#a0a0a0", "inverse": "#000000" },
+        "accent": "#800080",
+        "accentHover": "#800080",
+        "select": "#00ffff",
+        "ok": "#00ff00",
+        "warn": "#ffff00",
+        "error": "#ff4040",
+        "info": "#00ffff",
+        "tone": { "when": "#ffff00", "if": "#00ffff", "then": "#00ff00" },
+        "marker": { "spawn": "#00ff00", "light": "#ffff00", "monster": "#ff4040", "prop": "#00ffff" },
+        "path": "#ff00ff",
+        "pathActive": "#ff80ff",
+        "checker": { "a": "#202020", "b": "#303030" },
+        "bevel": { "hi": "#a0a0a0", "light": "#5a5a5a", "shadow": "#181818", "dark": "#000000" },
+        "title": { "a": "#800080", "b": "#c040c0", "ink": "#ffffff" },
+        "desktop": "#000040",
+        "tooltip": "#000000",
+        "canvas": { "bg": "#000000", "ink": "#e0e0e0", "fill": "#181818", "grid": "#000050", "gridMajor": "#0000a0" }
+      }
+    }
+  },
+
+  "pointers": {
+    "touch": { "size": { "body": 13, "small": 12, "hit": 40, "hitSmall": 32, "icon": 20, "iconSmall": 16 } }
+  },
+
+  "palettes": {
+    "tracks": ["#00ffff", "#ffff00", "#00ff00", "#ff00ff", "#ff0000", "#0080ff", "#ff8000", "#ffffff",
+               "#00c0c0", "#c0c000", "#00c000", "#c000c0", "#c00000", "#8080ff", "#c08040", "#c0c0c0"],
+    "layers": ["#00ff00", "#ffff00", "#00ffff", "#ff00ff"],
+    "notes": { "slate": "#808080", "blue": "#000080", "green": "#008000", "amber": "#808000", "red": "#800000", "violet": "#800080" }
+  },
+
+  "icons": {
+    "dir": "icons", "ext": "svg", "tint": true, "grid": 16, "stroke": 1,
+    "keepColor": ["status.*", "section.home", "section.maps", "section.textures", "section.scripts", "section.playlog", "maptool.select", "action.new", "action.open", "action.save", "action.delete",
+                  "action.search", "transport.record", "paint.pencil"]
+  },
+
+  "components": {
+    "button": {
+      "height": "$size.hit", "minWidth": 75, "padding": [0, 10], "border": "none", "radius": 0,
+      "bg": "$color.bg.raised", "color": "$color.text.primary", "shadow": "$bevel.out",
+      "font": "$font.ui", "size": "$size.body", "weight": "$weight.normal",
+      "hover": { "bg": "$color.bg.raised" },
+      "pressed": { "bg": "$color.bg.raised", "shadow": "$bevel.in", "padding": [2, 9, 0, 11] },
+      "focus": { "outline": "1px dotted $color.text.primary", "outlineOffset": -5 },
+      "on": { "bg": "$pattern.dither", "shadow": "$bevel.in" },
+      "disabled": { "opacity": 1, "color": "$color.bevel.shadow", "textShadow": "1px 1px 0 $color.bevel.hi" },
+      "variants": {
+        "primary": {
+          "bg": "$color.bg.raised", "color": "$color.text.primary", "shadow": "$bevel.default",
+          "hover": { "bg": "$color.bg.raised" }, "pressed": { "bg": "$color.bg.raised", "shadow": "inset 0 0 0 1px $color.bevel.dark, $bevel.in" },
+          "disabled": { "color": "$color.bevel.shadow", "shadow": "$bevel.out" }
+        },
+        "ghost": {
+          "bg": "transparent", "shadow": "none", "minWidth": 0,
+          "hover": { "bg": "transparent", "shadow": "$bevel.thinOut" },
+          "pressed": { "bg": "transparent", "shadow": "$bevel.thinIn" }
+        },
+        "danger": { "color": "$color.error" },
+        "icon": { "width": "$size.hit", "minWidth": 0, "padding": 0 },
+        "small": { "height": "$size.hitSmall", "minWidth": 0, "padding": [0, 6], "size": "$size.small" }
+      }
+    },
+    "chip": {
+      "height": "$size.hitSmall", "padding": [0, 8], "radius": 0, "border": "none",
+      "bg": "$color.bg.raised", "color": "$color.text.primary", "shadow": "$bevel.thinOut", "weight": "$weight.normal",
+      "hover": { "color": "$color.text.primary" },
+      "on": { "bg": "$pattern.dither", "color": "$color.text.primary", "shadow": "$bevel.thinIn" },
+      "disabled": { "opacity": 1, "color": "$color.bevel.shadow", "textShadow": "1px 1px 0 $color.bevel.hi" },
+      "remove": { "color": "$color.text.primary", "hover": { "color": "$color.error" } }
+    },
+    "seg": {
+      "padding": 0, "gap": 0, "radius": 0, "bg": "transparent", "border": "none",
+      "item": {
+        "height": "$size.hitSmall", "padding": [0, 10], "radius": 0, "bg": "$color.bg.raised", "color": "$color.text.primary",
+        "weight": "$weight.normal", "shadow": "$bevel.out",
+        "hover": { "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.dither", "shadow": "$bevel.in", "color": "$color.text.primary" }
+      }
+    },
+    "switch": {
+      "width": 13, "height": 13, "padding": 3, "radius": 0, "bg": "$color.bg.input", "shadow": "$bevel.field",
+      "on": { "bg": "$color.bg.input", "thumb": { "bg": "$color.text.primary" } },
+      "focus": { "outline": "1px dotted $color.text.primary", "outlineOffset": 2 },
+      "thumb": { "width": 7, "height": 7, "radius": 0, "bg": "transparent", "shadow": "none" }
+    },
+    "mini": {
+      "width": 20, "height": 18, "radius": 0, "border": "none", "bg": "$color.bg.raised", "color": "$color.text.primary",
+      "shadow": "$bevel.thinOut", "font": "$font.ui", "size": "$size.tiny",
+      "hover": { "color": "$color.text.primary" },
+      "variants": {
+        "solo": { "on": { "bg": "$color.ok", "color": "$color.text.inverse", "shadow": "$bevel.thinIn" } },
+        "mute": { "on": { "bg": "#ffff00", "color": "#000000", "shadow": "$bevel.thinIn" } },
+        "arm": { "on": { "bg": "#ff0000", "color": "#ffffff", "shadow": "$bevel.thinIn" } },
+        "close": { "shadow": "$bevel.out", "width": 16, "height": 14, "bg": "$color.bg.raised", "hover": { "color": "$color.text.primary" } }
+      }
+    },
+    "help": {
+      "width": 16, "height": 14, "radius": 0, "border": "none", "bg": "$color.bg.raised", "shadow": "$bevel.out",
+      "color": "$color.text.primary", "size": "$size.small",
+      "on": { "shadow": "$bevel.in", "bg": "$pattern.dither", "color": "$color.text.primary" }
+    },
+
+    "field": {
+      "height": 21, "padding": [0, 4], "radius": 0, "border": "none", "bg": "$color.bg.input", "color": "$color.text.primary",
+      "shadow": "$bevel.field", "size": "$size.body",
+      "hover": { "borderColor": "transparent" },
+      "focus": { "shadow": "$bevel.field" },
+      "error": { "bg": "#ffe0e0" },
+      "disabled": { "opacity": 1, "bg": "$color.bg.raised", "color": "$color.bevel.shadow" },
+      "unit": { "color": "$color.text.primary", "font": "$font.ui" },
+      "variants": {
+        "search": { "radius": 0, "padding": [0, 4] },
+        "code": { "font": "$font.mono", "size": 12, "bg": "$color.bg.code", "height": "auto", "padding": 6, "lineHeight": 1.3 },
+        "select": {}
+      }
+    },
+    "stepper": {
+      "height": 21, "radius": 0, "border": "none", "bg": "$color.bg.input", "shadow": "$bevel.field", "padding": 2,
+      "focus": { "borderColor": "transparent" },
+      "step": { "width": 16, "bg": "$color.bg.raised", "color": "$color.text.primary", "size": 10, "shadow": "$bevel.out",
+        "hover": { "bg": "$color.bg.raised", "color": "$color.text.primary" }, "pressed": { "bg": "$color.bg.raised", "shadow": "$bevel.in" } },
+      "input": { "font": "$font.ui", "size": "$size.body", "width": 44 },
+      "unit": { "color": "$color.text.primary", "font": "$font.ui", "padding": [0, 4] }
+    },
+    "slider": {
+      "label": { "color": "$color.text.primary", "size": "$size.body", "idle": { "color": "$color.text.primary" } },
+      "track": { "height": 4, "radius": 0, "bg": "$color.bg.input", "shadow": "$bevel.thinIn" },
+      "fill": { "bg": "transparent" },
+      "thumb": { "width": 11, "height": 21, "radius": 0, "bg": "$color.bg.raised", "border": "none", "shadow": "$bevel.out",
+        "hover": { "shadow": "$bevel.out" } },
+      "value": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body", "hover": { "color": "$color.text.primary" } }
+    },
+    "colorwell": {
+      "width": 24, "height": 24, "radius": 0, "border": "2px solid $color.bg.raised", "shadow": "0 0 0 1px $color.bevel.shadow",
+      "hover": { "borderColor": "$color.bg.raised" },
+      "selected": { "outline": "1px dotted $color.text.primary", "outlineOffset": 2, "shadow": "0 0 0 1px $color.bevel.dark" }
+    },
+    "key": {
+      "height": "$size.hit", "padding": [0, 8], "radius": 0, "border": "none", "bg": "$color.bg.raised", "shadow": "$bevel.out",
+      "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body", "weight": "$weight.normal",
+      "waiting": { "bg": "$pattern.dither", "shadow": "$bevel.in", "color": "$color.text.primary" }
+    },
+
+    "card": {
+      "radius": 0, "border": "none", "bg": "$color.bg.raised", "shadow": "$bevel.out", "padding": 3,
+      "head": { "padding": [3, 4], "gap": 6, "borderBottom": "none", "bg": "$pattern.title", "minHeight": 18 },
+      "title": { "color": "$color.title.ink", "size": "$size.body", "weight": "$weight.heavy" },
+      "sub": { "color": "$color.title.ink", "size": "$size.tiny", "opacity": 0.8 },
+      "body": { "padding": 8, "gap": 6, "color": "$color.text.primary", "size": "$size.body" },
+      "variants": {
+        "flat": { "shadow": "none", "bg": "transparent", "border": "2px groove $color.bevel.hi", "padding": 0,
+          "head": { "bg": "transparent" }, "title": { "color": "$color.text.primary" } }
+      }
+    },
+    "section": {
+      "radius": 0, "bg": "transparent", "border": "2px groove $color.bevel.hi", "borderLeft": "2px groove $color.bevel.hi",
+      "head": { "padding": [4, 8], "color": "$color.text.primary", "size": "$size.body", "weight": "$weight.heavy", "case": "none", "tracking": 0 },
+      "body": { "padding": [0, 8, 8, 8] },
+      "variants": {
+        "when": { "bg": "transparent", "borderLeft": "4px solid $color.tone.when", "head": { "color": "$color.tone.when" } },
+        "if":   { "bg": "transparent", "borderLeft": "4px solid $color.tone.if",   "head": { "color": "$color.tone.if" } },
+        "then": { "bg": "transparent", "borderLeft": "4px solid $color.tone.then", "head": { "color": "$color.tone.then" } }
+      }
+    },
+    "fold": {
+      "radius": 0, "border": "2px groove $color.bevel.hi", "bg": "transparent",
+      "head": { "padding": [4, 6], "hover": { "bg": "transparent" } },
+      "chevron": { "color": "$color.text.primary" },
+      "title": { "color": "$color.text.primary", "size": "$size.body", "weight": "$weight.heavy" },
+      "sub": { "color": "$color.text.dim", "size": "$size.small" },
+      "body": { "padding": [2, 8, 8, 8] },
+      "open": { "head": { "borderBottom": "none" } }
+    },
+    "heading": {
+      "padding": [10, 0, 4, 0], "color": "$color.text.primary", "size": "$size.body", "weight": "$weight.heavy",
+      "case": "none", "tracking": 0, "borderBottom": "1px solid $color.bevel.shadow", "shadow": "$bevel.etched",
+      "icon": { "color": "$color.text.primary" }
+    },
+    "row": {
+      "minHeight": 22, "padding": [2, 4], "gap": 6, "radius": 0, "border": "1px dotted transparent",
+      "bg": "$color.bg.input", "color": "$color.text.primary",
+      "hover": { "bg": "$color.bg.input" },
+      "selected": { "bg": "$color.accent", "color": "$color.accentInk", "border": "1px dotted $color.title.b",
+        "sub": { "color": "$color.accentInk" }, "end": { "color": "$color.accentInk" } },
+      "bad": { "bg": "$color.bg.input", "border": "1px dotted transparent", "color": "$color.error" },
+      "thumb": { "width": 32, "height": 32, "radius": 0, "bg": "$color.bg.sunken", "shadow": "$bevel.thinIn" },
+      "mark": { "color": "$color.text.primary", "iconSize": 16 },
+      "name": { "size": "$size.body", "weight": "$weight.normal" },
+      "sub": { "size": "$size.small", "color": "$color.text.dim" },
+      "end": { "color": "$color.text.primary" }
+    },
+    "tile": {
+      "width": 76, "radius": 0, "bg": "transparent", "border": "none", "padding": 2,
+      "hover": { "borderColor": "transparent" },
+      "selected": { "outline": "none", "caption": { "bg": "$color.accent", "color": "$color.accentInk" } },
+      "pic": { "height": 56, "shadow": "$bevel.field" },
+      "caption": { "padding": [1, 3], "bg": "transparent", "color": "$color.text.primary", "size": "$size.small", "align": "center" }
+    },
+    "strip": {
+      "gap": 4, "padding": 4, "bg": "$color.bg.input", "radius": 0, "shadow": "$bevel.field",
+      "item": { "width": 40, "height": 40, "radius": 0, "border": "none", "shadow": "$bevel.thinOut",
+        "hover": { "borderColor": "transparent" },
+        "selected": { "outline": "1px dotted $color.text.primary", "outlineOffset": 2, "shadow": "$bevel.in" } }
+    },
+
+    "rail": {
+      "width": 168, "padding": 4, "gap": 2, "bg": "$color.bg.rail", "borderRight": "none", "shadow": "$bevel.field",
+      "item": {
+        "height": 30, "padding": [0, 8], "gap": 8, "radius": 0, "color": "#ffffff", "weight": "$weight.normal", "iconSize": 16,
+        "hover": { "bg": "transparent", "color": "#ffffff", "shadow": "inset -1px -1px #000000, inset 1px 1px #dfdfdf" },
+        "on": { "bg": "rgba(0,0,0,.18)", "color": "#ffffff", "shadow": "inset -1px -1px #dfdfdf, inset 1px 1px #000000" }
+      },
+      "sep": { "bg": "#000000", "shadow": "0 1px 0 #a0a0a0", "margin": [4, 2] },
+      "variants": { "compact": { "width": 52 } }
+    },
+    "topbar": {
+      "height": 26, "padding": [0, 3], "gap": 3, "bg": "$pattern.title", "borderBottom": "none",
+      "title": { "color": "$color.title.ink", "size": "$size.body", "weight": "$weight.heavy" },
+      "sub": { "color": "$color.title.ink", "size": "$size.tiny", "opacity": 0.75 }
+    },
+    "tabs": {
+      "gap": 0, "borderBottom": "1px solid $color.bevel.hi", "padding": [2, 2, 0, 2],
+      "tab": {
+        "height": 20, "padding": [0, 10], "color": "$color.text.primary", "weight": "$weight.normal", "size": "$size.body",
+        "bg": "$color.bg.raised", "borderTop": "1px solid $color.bevel.hi", "borderLeft": "1px solid $color.bevel.hi",
+        "borderRight": "1px solid $color.bevel.dark", "borderBottom": "none", "radius": [3, 3, 0, 0], "margin": [2, 0, 0, 0],
+        "hover": { "color": "$color.text.primary" },
+        "on": { "height": 23, "margin": [0, -2, -1, -2], "padding": [0, 12], "borderBottom": "1px solid $color.bg.raised", "color": "$color.text.primary" }
+      }
+    },
+    "bottomtabs": {
+      "height": 30, "bg": "$color.bg.raised", "borderTop": "1px solid $color.bevel.hi", "padding": [2, 2], "gap": 3,
+      "tab": { "gap": 4, "color": "$color.text.primary", "iconSize": 16, "radius": 0, "shadow": "$bevel.out", "bg": "$color.bg.raised",
+        "on": { "color": "$color.text.primary", "bg": "$pattern.dither", "shadow": "$bevel.in" } },
+      "label": { "size": "$size.small", "weight": "$weight.normal" }
+    },
+    "toolbar": {
+      "gap": 0, "padding": 3, "bg": "$color.bg.raised", "radius": 0, "border": "none", "shadow": "$bevel.out", "blur": 0,
+      "tool": {
+        "minWidth": 48, "height": 42, "gap": 2, "radius": 0, "color": "$color.text.primary", "iconSize": 16,
+        "hover": { "bg": "transparent", "color": "$color.text.primary", "shadow": "$bevel.thinOut" },
+        "on": { "bg": "$pattern.dither", "color": "$color.text.primary", "shadow": "$bevel.thinIn" }
+      },
+      "label": { "size": "$size.tiny", "weight": "$weight.normal" }
+    },
+    "sheet": {
+      "bg": "$color.bg.raised", "radius": 0, "border": "none", "shadow": "$bevel.out", "padding": 3,
+      "head": { "padding": [3, 3, 3, 4], "borderBottom": "none", "bg": "$pattern.title", "minHeight": 20 },
+      "title": { "color": "$color.title.ink", "size": "$size.body", "weight": "$weight.heavy" },
+      "body": { "padding": 8, "gap": 8 },
+      "grip": { "height": 0, "width": 0 },
+      "variants": { "side": { "radius": 0, "shadow": "$bevel.out", "borderLeft": "none" } }
+    },
+    "drawer": {
+      "bg": "$color.bg.raised", "border": "none", "shadow": "$bevel.out", "radius": 0, "padding": 3,
+      "head": { "padding": [3, 4], "borderBottom": "none", "bg": "$pattern.title", "color": "$color.title.ink", "weight": "$weight.heavy" },
+      "body": { "padding": 6 }
+    },
+
+    "scrim": { "bg": "$color.desktop" },
+    "dialog": {
+      "width": 360, "radius": 0, "bg": "$color.bg.raised", "border": "none", "shadow": "$bevel.out", "padding": 3,
+      "head": { "padding": [3, 4], "bg": "$pattern.title" },
+      "title": { "color": "$color.title.ink", "size": "$size.body", "weight": "$weight.heavy" },
+      "body": { "padding": [12, 12, 6, 12], "gap": 8, "color": "$color.text.primary", "size": "$size.body" },
+      "foot": { "padding": [6, 10, 10, 10], "gap": 6 },
+      "variants": { "wide": { "width": 640 } }
+    },
+    "menu": {
+      "minWidth": 180, "padding": 3, "radius": 0, "bg": "$color.bg.raised", "border": "none", "shadow": "$bevel.out",
+      "item": { "height": 20, "padding": [0, 6], "gap": 8, "radius": 0, "color": "$color.text.primary", "size": "$size.body",
+        "hover": { "bg": "$color.accent", "color": "$color.accentInk" },
+        "disabled": { "opacity": 1, "color": "$color.bevel.shadow", "textShadow": "1px 1px 0 $color.bevel.hi" } },
+      "shortcut": { "color": "inherit", "font": "$font.ui", "size": "$size.body" },
+      "sep": { "height": 0, "margin": [3, 1], "borderTop": "1px solid $color.bevel.shadow", "borderBottom": "1px solid $color.bevel.hi", "bg": "transparent" },
+      "group": { "padding": [4, 6, 2, 6], "color": "$color.text.dim", "size": "$size.small", "weight": "$weight.heavy", "case": "none", "tracking": 0 },
+      "danger": { "color": "$color.error" }
+    },
+    "toast": {
+      "padding": [6, 8], "gap": 8, "radius": 0, "bg": "$color.tooltip", "border": "1px solid $color.text.primary",
+      "shadow": "none", "color": "$color.text.primary", "size": "$size.body",
+      "close": { "color": "$color.text.primary", "hover": { "color": "$color.error" } },
+      "variants": {
+        "ok": { "borderLeft": "1px solid $color.text.primary" },
+        "warn": { "borderLeft": "1px solid $color.text.primary" },
+        "error": { "borderLeft": "1px solid $color.text.primary" }
+      }
+    },
+    "tooltip": {
+      "padding": [2, 4], "radius": 0, "bg": "$color.tooltip", "color": "$color.text.primary", "border": "1px solid $color.text.primary",
+      "size": "$size.small", "weight": "$weight.normal", "shadow": "none"
+    },
+
+    "pill": {
+      "height": 20, "padding": [0, 6], "radius": 0, "bg": "$color.bg.raised", "border": "none", "shadow": "$bevel.thinIn",
+      "color": "$color.text.primary", "size": "$size.small", "weight": "$weight.normal",
+      "variants": {
+        "ok": { "color": "$color.ok", "bg": "$color.bg.raised", "borderColor": "transparent" },
+        "warn": { "color": "$color.warn", "bg": "$color.bg.raised", "borderColor": "transparent" },
+        "error": { "color": "$color.error", "bg": "$color.bg.raised", "borderColor": "transparent" }
+      }
+    },
+    "callout": {
+      "padding": [8, 10], "gap": 10, "radius": 0, "border": "2px groove $color.bevel.hi", "bg": "$color.bg.raised",
+      "color": "$color.text.primary", "size": "$size.body",
+      "variants": {
+        "error": { "bg": "$color.bg.raised", "borderColor": "$color.bevel.hi" },
+        "warn":  { "bg": "$color.bg.raised", "borderColor": "$color.bevel.hi" },
+        "info":  { "bg": "$color.bg.raised", "borderColor": "$color.bevel.hi" }
+      }
+    },
+    "badge": {
+      "minWidth": 16, "height": 14, "padding": [0, 3], "radius": 0, "bg": "$color.accent", "color": "$color.accentInk",
+      "font": "$font.ui", "size": "$size.tiny", "weight": "$weight.heavy",
+      "variants": { "error": { "bg": "#ff0000", "color": "#ffffff" }, "muted": { "bg": "$color.bevel.shadow", "color": "#ffffff" } }
+    },
+    "dot": {
+      "width": 8, "height": 8, "radius": 0, "bg": "#ff0000", "shadow": "inset 0 0 0 1px #000000",
+      "variants": { "ok": { "bg": "#00ff00" }, "warn": { "bg": "#ffff00" }, "error": { "bg": "#ff0000" } }
+    },
+    "progress": {
+      "gap": 4,
+      "track": { "height": 18, "radius": 0, "bg": "$color.bg.raised", "shadow": "$bevel.thinIn", "padding": 2 },
+      "fill": { "radius": 0, "bg": "$pattern.blocks", "margin": [2, 0] },
+      "label": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.small" }
+    },
+    "boot": {
+      "bg": "$color.desktop", "gap": 14, "padding": 24,
+      "title": { "color": "#ffffff", "font": "$font.display", "size": 30, "weight": 900, "italic": true, "textShadow": "3px 3px 0 #000000" },
+      "track": { "height": 18, "radius": 0, "bg": "#c0c0c0", "shadow": "inset -1px -1px #ffffff, inset 1px 1px #808080", "width": 320 },
+      "fill": { "radius": 0, "bg": "repeating-linear-gradient(90deg, #000080 0 8px, transparent 8px 10px)", "margin": [3, 0] },
+      "status": { "color": "#ffffff", "font": "$font.ui", "size": "$size.body" },
+      "log": { "width": 380, "maxWidth": "100%", "height": 100, "padding": 6, "radius": 0, "bg": "#ffffff", "border": "none", "shadow": "inset -1px -1px #ffffff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #000000" },
+      "line": { "color": "#000000", "font": "$font.mono", "size": "$size.small", "lineHeight": 1.3 }
+    },
+    "log": {
+      "padding": 6, "radius": 0, "bg": "$color.bg.code", "border": "none", "shadow": "$bevel.field",
+      "line": { "color": "$color.text.primary", "font": "$font.mono", "size": 12, "lineHeight": 1.3 },
+      "bad": { "color": "$color.error" },
+      "ok": { "color": "$color.ok" }
+    },
+    "empty": {
+      "padding": 20, "gap": 6, "radius": 0, "border": "none", "bg": "$color.bg.input", "shadow": "$bevel.field",
+      "icon": { "color": "$color.text.dim", "iconSize": 32 },
+      "text": { "color": "$color.text.dim", "size": "$size.body" }
+    },
+    "kbd": {
+      "padding": [0, 4], "radius": 0, "bg": "$color.bg.raised", "border": "none", "borderBottom": "none",
+      "shadow": "$bevel.thinOut", "color": "$color.text.primary", "font": "$font.ui", "size": "$size.tiny"
+    },
+
+    "transport": {
+      "gap": 2, "padding": 3, "radius": 0, "bg": "$color.bg.raised", "border": "none", "shadow": "$bevel.out",
+      "button": {
+        "width": 26, "height": 22, "radius": 0, "color": "$color.text.primary", "iconSize": 16, "bg": "$color.bg.raised", "shadow": "$bevel.out",
+        "hover": { "bg": "$color.bg.raised", "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.dither", "color": "$color.text.primary", "shadow": "$bevel.in" }
+      },
+      "rec": { "color": "#ff0000", "on": { "bg": "$pattern.dither", "color": "#ff0000", "shadow": "$bevel.in" } },
+      "display": { "padding": [0, 8], "color": "$color.lcdInk", "font": "$font.mono", "size": 15, "weight": "$weight.heavy",
+        "bg": "$color.lcd", "radius": 0, "height": 22, "shadow": "$bevel.field" }
+    },
+    "meter": {
+      "height": 12, "radius": 0, "bg": "$color.lcd", "border": "none", "shadow": "$bevel.thinIn",
+      "fill": { "bg": "$pattern.leds" },
+      "peak": { "width": 2, "bg": "#ffffff" },
+      "value": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.small" },
+      "variants": { "reduction": { "fill": { "bg": "repeating-linear-gradient(90deg, transparent 0 3px, #000000 3px 4px), #ffff00" } } }
+    },
+    "keys": {
+      "height": 80, "radius": 0, "bg": "#000000", "shadow": "0 0 0 1px #000000",
+      "white": { "bg": "#ffffff", "border": "1px solid #000000", "radius": 0, "pressed": { "bg": "#c0c0c0" }, "lit": { "bg": "#ffff00" } },
+      "black": { "bg": "#000000", "radius": 0, "pressed": { "bg": "#808080" }, "lit": { "bg": "#808000" } }
+    },
+    "pad": {
+      "width": 60, "height": 50, "padding": 5, "radius": 0, "bg": "$color.bg.raised", "border": "none", "shadow": "$bevel.out",
+      "color": "$color.text.primary", "size": "$size.body", "weight": "$weight.heavy",
+      "hover": { "borderColor": "transparent" },
+      "on": { "bg": "$pattern.dither", "color": "$color.text.primary", "shadow": "$bevel.in", "sub": { "color": "$color.text.primary" } },
+      "selected": { "outline": "1px dotted $color.text.primary", "outlineOffset": -6 },
+      "lit": { "bg": "#ffff00", "color": "#000000", "shadow": "$bevel.out", "borderColor": "transparent" },
+      "sub": { "color": "$color.text.dim", "size": "$size.tiny" }
+    },
+    "icon": {
+      "variants": { "missing": { "outline": "1px dotted $color.text.dim", "outlineOffset": 1, "radius": 0 } }
+    }
+  },
+
+  "canvas": {
+    "common": {
+      "stage": "$color.canvas.bg",
+      "checker.a": { "fill": "$color.checker.a", "size": 8 },
+      "checker.b": { "fill": "$color.checker.b", "size": 8 },
+      "pixelGrid": "$color.canvas.ink/12",
+      "imageBorder": "$color.canvas.ink",
+      "marquee": { "color": "#000000", "dash": [1, 1] },
+      "marquee.shadow": { "color": "#ffffff", "dash": [1, 1] },
+      "cursor": "$color.canvas.ink",
+      "handle": { "fill": "$color.canvas.ink", "color": "$color.canvas.bg", "size": 6 },
+      "handle.hot": { "fill": "$color.select", "color": "$color.canvas.bg", "size": 7 },
+      "handle.idle": { "fill": "$color.canvas.bg", "color": "$color.canvas.ink", "size": 6 },
+      "label": { "fill": "$color.tooltip", "color": "$color.text.primary", "font": "11px $font.ui" },
+      "grid.minor": "$color.canvas.grid",
+      "grid.major": "$color.canvas.gridMajor",
+      "guide": { "color": "$color.canvas.ink", "dash": [1, 2] },
+      "selected": { "color": "$color.select", "width": 2 },
+      "playhead": { "color": "#ff0000", "width": 1 },
+      "loop": { "fill": "$color.accent/25", "color": "$color.accent", "width": 1 },
+      "ruler": { "fill": "$color.bg.raised", "color": "$color.text.primary", "font": "10px $font.ui" },
+      "problem": { "fill": "rgba(255,0,0,0.25)", "color": "#ff0000", "width": 2 },
+      "warning": { "fill": "rgba(255,255,0,0.3)", "color": "#808000", "width": 2 },
+      "text": { "color": "$color.canvas.ink", "font": "11px $font.ui" }
+    },
+    "map": {
+      "room.fill": "$color.canvas.fill",
+      "room.line": "$color.canvas.ink",
+      "corner.snap": { "fill": "$color.canvas.gridMajor", "size": 5 },
+      "draw": { "color": "$color.select", "width": 1 },
+      "pick": { "color": "$color.select", "width": 1, "dash": [2, 2] },
+      "marker": { "fill": "$color.tooltip", "color": "$color.text.primary", "width": 2, "radius": 0, "font": "11px $font.ui" },
+      "neighbour": { "fill": "rgba(128,128,128,.45)" },
+      "path.chord": { "color": "$color.path", "dash": [1, 2] }
+    },
+    "graph": {
+      "board": "$color.desktop",
+      "dot": { "fill": "rgba(0,0,0,.22)", "size": 24 },
+      "node": { "fill": "#c0c0c0", "color": "#000000", "radius": 0 },
+      "node.title": { "color": "#ffffff", "font": "bold 11px $font.ui" },
+      "node.text": { "color": "#000000", "font": "11px $font.ui" },
+      "node.field": { "fill": "#ffffff", "color": "#808080", "radius": 0 },
+      "node.selected": { "color": "#ffff00", "width": 2 },
+      "pin.exec": { "fill": "#000000", "size": 7 },
+      "pin.data": { "color": "#008000", "size": 4, "width": 2 },
+      "pin.valid": { "color": "#ffff00", "width": 2 },
+      "wire.exec": { "color": "#ffffff", "width": 2 },
+      "wire.data": { "color": "#00ff00", "width": 2 },
+      "wire.selected": { "color": "#ffff00", "width": 3 },
+      "wire.drag": { "color": "#ffffff", "width": 1, "dash": [2, 2] },
+      "bend": { "fill": "#ffffff", "size": 4 },
+      "bend.selected": { "fill": "#ffff00", "size": 5 },
+      "note.alpha": { "alpha": 0.85 },
+      "state": { "fill": "#c0c0c0", "color": "#000000", "radius": 0, "width": 1 },
+      "state.selected": { "color": "#ffff00", "width": 2 },
+      "state.bad": { "color": "#ff0000", "width": 2 },
+      "state.initial": "#ffff00",
+      "edge.transition": { "color": "#ffffff", "width": 1 },
+      "edge.next": { "color": "#ffff00", "width": 1, "dash": [4, 3] },
+      "edge.goto": { "color": "#00ff00", "width": 1, "dash": [1, 2] },
+      "edge.label": { "color": "#000000", "fill": "#ffffe1", "font": "11px $font.ui" }
+    },
+    "preview": {
+      "floor": { "color": "$color.canvas.ink", "width": 1 },
+      "figure": "$color.canvas.gridMajor",
+      "swing.ring": "$color.canvas.grid",
+      "swing.reach": { "color": "$color.canvas.ink", "dash": [1, 2] },
+      "swing.range": { "fill": "rgba(0,255,0,0.25)", "color": "#008000" },
+      "swing.current": { "fill": "rgba(255,0,0,0.35)", "color": "#ff0000" },
+      "swing.body": { "fill": "$color.canvas.ink", "size": 5 },
+      "thumb.room": "$color.canvas.fill",
+      "thumb.line": "$color.canvas.ink",
+      "slice.guide": { "color": "#ff00ff", "dash": [2, 2] },
+      "cutter.divider": { "color": "#ff00ff", "width": 1 },
+      "cutter.current": { "color": "#0000ff", "width": 2 }
+    },
+    "designer": {
+      "frame": { "fill": "$color.desktop", "color": "#000000", "radius": 0, "width": 2 },
+      "safe": { "color": "#ffffff", "dash": [1, 2] },
+      "panel": { "color": "#ffff00", "dash": [2, 2] },
+      "panel.selected": { "color": "#ffff00", "width": 2 },
+      "slot": { "color": "#00ff00", "dash": [2, 2] },
+      "slot.selected": { "color": "#00ff00", "fill": "rgba(0,255,0,0.15)", "width": 2 },
+      "slot.hidden": { "color": "rgba(0,255,0,0.5)" },
+      "slot.tag": { "fill": "#00ff00", "color": "#000000", "font": "10px $font.ui" },
+      "decor": { "color": "#00ffff", "dash": [1, 2] },
+      "hit": { "color": "#ffff00", "dash": [2, 2] },
+      "stick": { "color": "#ffffff", "dash": [3, 3] },
+      "touchbtn": { "fill": "#c0c0c0", "color": "#000000", "font": "bold 11px $font.ui" }
+    },
+    "rig": {
+      "ground": { "color": "#008000", "width": 2 },
+      "mirror": { "color": "#ff00ff", "dash": [2, 2] },
+      "bounds": "$color.select/50",
+      "bone": { "color": "#0000ff", "fill": "rgba(0,0,255,0.3)", "width": 1 },
+      "bone.selected": { "color": "#ff0000", "fill": "rgba(255,0,0,0.3)", "width": 1 },
+      "root": { "fill": "#ffffff", "size": 4, "width": 1 },
+      "rubber": { "color": "#ff0000", "dash": [2, 2] },
+      "facing": { "color": "#ff0000", "width": 2 },
+      "viewLabel": { "fill": "#ffffe1", "color": "#000000", "font": "bold 12px $font.ui" },
+      "boneLabel": { "color": "#000000", "font": "11px $font.ui" }
+    },
+    "timeline": {
+      "bg": "$color.canvas.bg",
+      "row": "$color.canvas.bg",
+      "row.alt": "$color.canvas.fill",
+      "header": { "fill": "$color.bg.raised", "color": "$color.text.primary", "font": "10px $font.ui" },
+      "current": { "fill": "rgba(255,0,0,0.12)", "color": "#ff0000" },
+      "key": { "fill": "$color.canvas.ink", "size": 4 },
+      "key.selected": { "fill": "#ff0000", "color": "$color.canvas.ink", "size": 5 },
+      "label": { "color": "$color.canvas.ink", "font": "11px $font.ui" }
+    },
+    "paint": {
+      "tileGrid": "rgba(0,0,255,0.6)",
+      "symmetry": { "color": "#ff00ff", "dash": [2, 2] },
+      "sky.face": { "color": "#ffff00", "width": 1 },
+      "sky.label": { "fill": "#ffffe1", "color": "#000000", "font": "bold 11px $font.ui" },
+      "horizon": { "color": "#ffff00", "dash": [3, 3] }
+    },
+    "audio": {
+      "bg": "#000000",
+      "mid": "#008000",
+      "wave": { "color": "#00ff00", "width": 1 },
+      "wave.over": "#ff0000",
+      "wave.full": { "color": "#ffff00", "dash": [2, 2] },
+      "envelope": { "color": "#ffff00", "fill": "rgba(255,255,0,0.1)", "width": 1 },
+      "envelope.sustain": { "color": "#ffff00", "dash": [2, 2], "width": 1 },
+      "envelope.handle": { "fill": "#ffffff", "size": 3 },
+      "spectrum": "rgba(0,128,255,0.4)",
+      "scope": { "color": "#00ff00", "width": 1 },
+      "harmonic": "#008000",
+      "harmonic.strong": "#00ff00",
+      "shaper": { "color": "#ffff00", "width": 1 },
+      "filter.danger": { "fill": "rgba(255,0,0,0.18)" },
+      "eq.low": "#ffff00",
+      "eq.mid": "#00ff00",
+      "eq.high": "#ff00ff",
+      "grid": "#004000",
+      "grid.label": { "color": "#00c000", "font": "10px $font.mono" },
+      "bar": "#008000",
+      "beat": "#003000",
+      "songEnd": { "fill": "rgba(128,128,128,.25)" },
+      "lane": "#000000",
+      "lane.alt": "#0c0c0c",
+      "note.selected": { "color": "#ffffff", "width": 1 },
+      "note.playing": "#ffffff",
+      "key.white": "#ffffff",
+      "key.black": "#000000",
+      "key.lit": "#ffff00",
+      "cc": { "color": "#ffff00", "size": 3, "width": 1 },
+      "density": "rgba(0,255,0,0.4)",
+      "activity": "#00ff00",
+      "field.ring": { "color": "#008000", "dash": [1, 3] },
+      "field.played": "#00ff00",
+      "field.refused": "#ff0000",
+      "field.listener": "#ffff00",
+      "flow.node": { "fill": "#c0c0c0", "color": "#ffffff", "radius": 0 },
+      "flow.line": { "color": "#00ff00", "width": 1 },
+      "flow.text": { "color": "#000000", "font": "11px $font.ui" },
+      "match.dim": { "fill": "rgba(0,0,0,.65)" },
+      "match.edge": { "color": "#ffff00", "width": 1 }
+    }
+  }
+}

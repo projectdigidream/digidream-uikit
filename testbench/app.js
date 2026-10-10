@@ -3,7 +3,7 @@
 // reloads by itself when anything under skins/ changes (served mode).
 
 import { loadChain, compile, iconCandidates } from '../lib/skin.js';
-import { installCss, skinView } from '../lib/runtime.js';
+import { installCss, skinView, iconTinted } from '../lib/runtime.js';
 import { bake } from '../lib/bake.js';
 import * as kit from '../lib/kit.js';
 import { SECTIONS } from './sections.js';
@@ -89,7 +89,7 @@ async function load () {
   installCss(compiled);
   kit.setIconSource({
     url: (id) => compiled.icons.urls[id] ?? null,
-    tint: compiled.icons.tint !== false,
+    tint: (id) => iconTinted(compiled.icons, id),
     glyph: (id) => glyphs.get(id) ?? '?',
   });
   if (state.mode !== 'both' && !compiled.modes.includes(state.mode)) state.mode = compiled.modes[0];

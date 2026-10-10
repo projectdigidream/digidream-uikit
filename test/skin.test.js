@@ -89,6 +89,7 @@ await test('validation names what is wrong', () => {
   const all = c.warnings.join('\n');
   for (const want of ['unknown top-level key "colour"', 'components.buton: no such component', 'components.button: unknown key "bgg"',
     'has no variant "huge"', 'components.button.hover: unknown key "nope"', 'canvas.map.x: unknown key "colr"']) assert.ok(all.includes(want), want);
+  assert.match(compile({ canvas: { map: { x: '#ff0000/25' } } }).warnings.join(), /alpha \(\/NN\) needs a \$token/);
 });
 
 await test('extends: child over parent, files rebased to their own skin, loops caught', async () => {
@@ -107,6 +108,14 @@ await test('extends: child over parent, files rebased to their own skin, loops c
   const w = [];
   await loadChain('loop1', src, w);
   assert.ok(w.some((m) => /makes a loop/.test(m)));
+});
+
+await test('modes: a child can replace its parent\'s modes with null', async () => {
+  const src = memSource({ base: { modes: { dark: {}, light: { color: { a: '#fff' } } } }, kid: { extends: 'base', tokens: { color: { a: '#000' } }, modes: { dark: null, light: null, classic: {}, night: { color: { a: '#111' } } } } });
+  const { merged } = await loadChain('kid', src);
+  const c = compile(merged);
+  assert.deepEqual(c.modes, ['classic', 'night']);
+  assert.equal(c.tokens['classic/mouse']['color.a'], '#000');
 });
 
 await test('bake inlines every file and reports missing ones', async () => {

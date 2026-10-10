@@ -171,7 +171,7 @@ function graphEditor (ctx, w, h, v) {
     const nw = 170; const nh = 34 + rows.length * 22;
     const n = C(v, 'graph', 'node');
     rect(ctx, x, y, nw, nh, { fill: n.fill, stroke: sel ? C(v, 'graph', 'node.selected') : { color: n.color, width: 1 }, r: n.radius });
-    ctx.save(); ctx.beginPath(); ctx.roundRect(x + 1, y + 1, nw - 2, 24, [n.radius - 1, n.radius - 1, 0, 0]); ctx.fillStyle = C(v, 'graph', `head.${kind}`).color; ctx.fill(); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.roundRect(x + 1, y + 1, nw - 2, 24, [Math.max(0, n.radius - 1), Math.max(0, n.radius - 1), 0, 0]); ctx.fillStyle = C(v, 'graph', `head.${kind}`).color; ctx.fill(); ctx.restore();
     text(ctx, C(v, 'graph', 'node.title'), title, x + 10, y + 17);
     const pin = C(v, 'graph', 'pin.exec');
     poly(ctx, pin.fill, [[x - 4, y + 7], [x + 2, y + 7], [x + 6, y + 12], [x + 2, y + 17], [x - 4, y + 17]]);

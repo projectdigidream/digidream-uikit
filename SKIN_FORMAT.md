@@ -115,6 +115,7 @@ Tools and canvases refer to these names, so a skin that extends `default` keeps 
 ```
 
 - **`modes`** lists the colour modes the skin offers. The **first one is the default**. Each value overrides tokens, and only tokens. Components and canvases follow because they refer to tokens.
+  - Mode names are free. A child skin inherits its parent's modes; to offer different ones, delete the parent's with `null`: `"modes": { "dark": null, "light": null, "classic": {}, "night": { … } }` (as `skins/nineties` does).
   - To make a component or canvas colour differ between modes, give it a token.
   - A skin with only `dark` simply has no light mode.
 - **`pointers`** works the same way for the input device: `mouse` is the base, and `touch` overrides tokens (bigger hit sizes, bigger text).
@@ -258,7 +259,7 @@ Values can be token references.
 ## `icons`
 
 ```json
-"icons": { "dir": "icons", "ext": "svg", "tint": true, "grid": 24, "stroke": 1.75, "files": { "action.undo": "special/undo.svg" } }
+"icons": { "dir": "icons", "ext": "svg", "tint": true, "keepColor": ["status.*", "action.save"], "grid": 24, "stroke": 1.75, "files": { "action.undo": "special/undo.svg" } }
 ```
 
 - **Ids:** every icon a tool needs is listed in `catalog/icons.json`, about 210 of them in 17 groups. An id is `<group>.<name>`, e.g. `action.undo`, `section.maps` or `sfx.explosion`.
@@ -268,6 +269,7 @@ Values can be token references.
   - Draw it in one colour on a transparent background; the colour you draw in does not matter.
   - Icons then follow every state (hover, on, disabled) and both modes.
 - **`tint: false`:** the picture is shown as drawn, multi-colour. This suits pixel-art icons.
+- **`keepColor`:** a list of ids, or whole groups as `"group.*"`, shown as drawn while the rest of the set is tinted. Use it when a set mixes plain glyphs (play, arrows) with colour pictures (folder, floppy, warning sign).
 - **`grid`, `stroke`:** what the set is drawn at, for people drawing new icons. A 24×24 viewBox and a 1.75 stroke keep the set even.
 
 SVG is preferred. PNG works too (`"ext": "png"`); draw it at least 2× the largest size it is shown at (`size.icon` × 2).

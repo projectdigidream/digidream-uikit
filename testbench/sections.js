@@ -172,7 +172,7 @@ function icons (stage, v, { catalog, compiled }) {
   stage.append(h('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' } },
     h('strong', {}, `${drawn.length} of ${all.length} drawn`),
     h('div', { style: { flex: '1', maxWidth: '320px' } }, k.progress(drawn.length / all.length)),
-    cap(`grid ${compiled.icons.grid ?? 24} · stroke ${compiled.icons.stroke ?? '—'} · ${compiled.icons.tint === false ? 'full colour' : 'tinted by text colour'}`)));
+    cap(`grid ${compiled.icons.grid ?? 24} · stroke ${compiled.icons.stroke ?? '—'} · ${compiled.icons.tint === false ? 'full colour' : 'tinted by text colour'}${compiled.icons.keepColor?.length ? ` · kept in colour: ${compiled.icons.keepColor.join(', ')}` : ''}`)));
   for (const g of catalog.groups) {
     const n = g.icons.filter(([nm]) => compiled.icons.urls?.[`${g.id}.${nm}`]).length;
     stage.append(hd(`${g.label} · ${n}/${g.icons.length} · icons/${g.id}/ · used in ${g.used}`));
