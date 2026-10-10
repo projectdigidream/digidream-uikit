@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skin Testbench</title>
+<link rel="stylesheet" href="../lib/kit.css">
+<link rel="stylesheet" href="testbench.css">
+</head>
+<body>
+<header id="tb-bar">
+  <strong class="tb-brand">Skin testbench</strong>
+  <label class="tb-ctl">skin <select id="tb-skin"></select></label>
+  <button id="tb-folder" class="tb-btn" title="Open a skin folder from anywhere on disk">Open folder…</button>
+  <input id="tb-folder-input" type="file" webkitdirectory hidden>
+  <span class="tb-ctl">mode <span id="tb-mode" class="tb-seg"></span></span>
+  <span class="tb-ctl">pointer <span id="tb-pointer" class="tb-seg"></span></span>
+  <span class="tb-spacer"></span>
+  <span id="tb-live" class="tb-live" title="Reloads by itself when a file in the skin changes">●</span>
+  <button id="tb-reload" class="tb-btn">Reload</button>
+  <button id="tb-bake" class="tb-btn" title="Download the compiled one-file bundle a tool ships">Bake bundle</button>
+  <a id="tb-problems-link" class="tb-problems" href="#problems"></a>
+</header>
+<div id="tb-wrap">
+  <nav id="tb-nav"></nav>
+  <main id="tb-main"></main>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

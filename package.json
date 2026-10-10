@@ -1,0 +1,9 @@
+{
+  "name": "dnp-uikit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node serve.js",
+    "test": "node test/skin.test.js"
+  }
+}

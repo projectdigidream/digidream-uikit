@@ -1,0 +1,697 @@
+{
+  "format": "dnp-skin",
+  "version": 1,
+  "id": "default",
+  "name": "Digidream default",
+  "about": "The unified proposal: the studio's navy look, one accent, one selection colour, one playhead, sans UI text with monospace numbers. Every other skin extends this one.",
+
+  "fonts": [],
+
+  "tokens": {
+    "color": {
+      "bg": {
+        "app": "#0b0d12",
+        "rail": "#0e1118",
+        "panel": "#12161e",
+        "raised": "#1b2230",
+        "hover": "#222b3b",
+        "input": "#151a24",
+        "overlay": "#141922",
+        "code": "#0f131b",
+        "sunken": "#07090d"
+      },
+      "line": {
+        "soft": "#1f2734",
+        "main": "#2a3446",
+        "strong": "#3a4454"
+      },
+      "text": {
+        "primary": "#e8f0ff",
+        "secondary": "#9fb0c8",
+        "dim": "#6f7e96",
+        "inverse": "#0b0d12"
+      },
+      "accent": "#5b8fd6",
+      "accentHover": "#6d9ee2",
+      "accentInk": "#ffffff",
+      "select": "#ffe066",
+      "playhead": "#7ad48a",
+      "ok": "#7ad48a",
+      "warn": "#ffc857",
+      "error": "#ff6b6b",
+      "info": "#8fd0ff",
+      "guide": "#ff5aa5",
+      "wave": "#7fd1b9",
+      "scrim": "rgba(0,0,0,.55)",
+      "tone": { "when": "#ffcc66", "if": "#5b8fd6", "then": "#7ad48a" },
+      "node": {
+        "event": "#5a2330", "condition": "#5a4a1e", "action": "#1f3a5c",
+        "flow": "#33384a", "data": "#1f4a35", "camera": "#4a2a5c"
+      },
+      "marker": { "spawn": "#66ff99", "light": "#ffcc66", "monster": "#ff6b6b", "prop": "#8fd0ff" },
+      "path": "#9a7bd6",
+      "pathActive": "#d0a6ff",
+      "checker": { "a": "#2a3040", "b": "#343b4d" },
+      "keys": { "white": "#e8e6e1", "black": "#1a1a1e" }
+    },
+    "font": {
+      "ui": "Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "mono": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    },
+    "size": {
+      "tiny": 11, "small": 12, "body": 14, "large": 16, "title": 18, "hero": 22,
+      "hit": 32, "hitSmall": 26, "icon": 18, "iconSmall": 14
+    },
+    "weight": { "normal": 400, "strong": 600, "heavy": 700 },
+    "radius": { "small": 4, "control": 8, "card": 10, "dialog": 12, "sheet": 14, "pill": 999 },
+    "space": { "xs": 4, "sm": 6, "md": 10, "lg": 14, "xl": 20 },
+    "shadow": {
+      "raised": "0 1px 2px rgba(0,0,0,.35)",
+      "menu": "0 12px 40px rgba(0,0,0,.5)",
+      "sheet": "0 -8px 28px rgba(0,0,0,.45)",
+      "toast": "0 8px 24px rgba(0,0,0,.4)"
+    },
+    "motion": { "fast": "120ms ease" }
+  },
+
+  "modes": {
+    "dark": {},
+    "light": {
+      "color": {
+        "bg": {
+          "app": "#f4f5f8", "rail": "#eaecf1", "panel": "#ffffff", "raised": "#eef0f4",
+          "hover": "#e3e7ee", "input": "#ffffff", "overlay": "#ffffff", "code": "#f7f8fa", "sunken": "#dfe2e8"
+        },
+        "line": { "soft": "#e6e8ee", "main": "#d4d8e0", "strong": "#b9bfca" },
+        "text": { "primary": "#1b2030", "secondary": "#4f5a6e", "dim": "#7d8799", "inverse": "#ffffff" },
+        "accent": "#2f6fdb",
+        "accentHover": "#3b7be6",
+        "select": "#d49a00",
+        "playhead": "#1f9a4c",
+        "ok": "#1f8a4c",
+        "warn": "#b26a00",
+        "error": "#c63b2e",
+        "info": "#1f78b4",
+        "wave": "#1d8f74",
+        "scrim": "rgba(20,24,34,.35)",
+        "tone": { "when": "#b77a00", "if": "#2f6fdb", "then": "#1f8a4c" },
+        "node": {
+          "event": "#f3d4da", "condition": "#f2e6c4", "action": "#d2e1f6",
+          "flow": "#e1e3ea", "data": "#cfe9db", "camera": "#e7d6f2"
+        },
+        "marker": { "spawn": "#1f9a4c", "light": "#b77a00", "monster": "#c63b2e", "prop": "#1f78b4" },
+        "path": "#7a55c4",
+        "pathActive": "#9a6be0",
+        "checker": { "a": "#d9dce3", "b": "#c8ccd5" }
+      },
+      "shadow": {
+        "raised": "0 1px 2px rgba(20,24,34,.12)",
+        "menu": "0 12px 32px rgba(20,24,34,.18)",
+        "sheet": "0 -8px 24px rgba(20,24,34,.15)",
+        "toast": "0 8px 24px rgba(20,24,34,.18)"
+      }
+    }
+  },
+
+  "pointers": {
+    "touch": {
+      "size": { "body": 15, "hit": 44, "hitSmall": 36, "icon": 20, "iconSmall": 16 }
+    }
+  },
+
+  "palettes": {
+    "tracks": ["#64b5f6", "#e0b060", "#7bc67b", "#d678d6", "#f28b82", "#80cbc4", "#ffd54f", "#b39ddb",
+               "#a5d6a7", "#ffab91", "#90caf9", "#ce93d8", "#c5e1a5", "#ffe082", "#80deea", "#ef9a9a"],
+    "layers": ["#64b5f6", "#e0b060", "#7bc67b", "#d678d6"],
+    "notes": { "slate": "#5d6b82", "blue": "#3f6fb5", "green": "#3f8f5a", "amber": "#b5892f", "red": "#b54848", "violet": "#7a5bb5" }
+  },
+
+  "icons": {
+    "dir": "icons",
+    "ext": "svg",
+    "tint": true,
+    "grid": 24,
+    "stroke": 1.75
+  },
+
+  "brand": {},
+
+  "components": {
+    "button": {
+      "height": "$size.hit", "padding": [0, 12], "gap": 6, "radius": "$radius.control",
+      "bg": "$color.bg.raised", "color": "$color.text.primary", "border": "1px solid $color.line.strong",
+      "font": "$font.ui", "size": "$size.body", "weight": "$weight.strong", "iconSize": "$size.icon",
+      "transition": "background $motion.fast, border-color $motion.fast",
+      "hover": { "bg": "$color.bg.hover", "borderColor": "$color.text.dim" },
+      "pressed": { "bg": "$color.line.main" },
+      "focus": { "outline": "2px solid $color.accent", "outlineOffset": 2 },
+      "on": { "bg": "$color.accent/55", "borderColor": "$color.accent" },
+      "disabled": { "opacity": 0.4 },
+      "variants": {
+        "primary": {
+          "bg": "$color.accent", "color": "$color.accentInk", "borderColor": "$color.accent",
+          "hover": { "bg": "$color.accentHover", "borderColor": "$color.accentHover" },
+          "pressed": { "bg": "$color.accent/80" }
+        },
+        "ghost": { "bg": "transparent", "borderColor": "transparent", "hover": { "bg": "$color.bg.hover", "borderColor": "transparent" } },
+        "danger": { "color": "$color.error", "hover": { "borderColor": "$color.error" } },
+        "icon": { "width": "$size.hit", "padding": 0 },
+        "small": { "height": "$size.hitSmall", "padding": [0, 8], "size": "$size.small", "iconSize": "$size.iconSmall" }
+      }
+    },
+    "chip": {
+      "height": "$size.hitSmall", "padding": [0, 10], "radius": "$radius.pill", "gap": 6,
+      "bg": "$color.bg.raised", "color": "$color.text.secondary", "border": "1px solid $color.line.main",
+      "font": "$font.ui", "size": "$size.small", "weight": "$weight.strong",
+      "hover": { "color": "$color.text.primary", "borderColor": "$color.line.strong" },
+      "on": { "bg": "$color.accent/35", "color": "$color.text.primary", "borderColor": "$color.accent" },
+      "disabled": { "opacity": 0.4 },
+      "remove": { "color": "$color.text.dim", "hover": { "color": "$color.error" } },
+      "variants": { "small": { "height": 22, "padding": [0, 8], "size": "$size.tiny" } }
+    },
+    "seg": {
+      "padding": 3, "gap": 2, "radius": "$radius.control", "bg": "$color.bg.input", "border": "1px solid $color.line.main",
+      "item": {
+        "height": "$size.hitSmall", "padding": [0, 12], "radius": 6, "color": "$color.text.secondary",
+        "font": "$font.ui", "size": "$size.small", "weight": "$weight.strong",
+        "hover": { "color": "$color.text.primary" },
+        "on": { "bg": "$color.bg.raised", "color": "$color.text.primary", "shadow": "$shadow.raised" },
+        "disabled": { "opacity": 0.4 }
+      }
+    },
+    "switch": {
+      "width": 40, "height": 22, "padding": 3, "radius": "$radius.pill", "bg": "$color.line.strong",
+      "on": { "bg": "$color.accent" },
+      "disabled": { "opacity": 0.4 },
+      "focus": { "outline": "2px solid $color.accent", "outlineOffset": 2 },
+      "thumb": { "width": 16, "height": 16, "radius": "$radius.pill", "bg": "#ffffff", "shadow": "$shadow.raised" }
+    },
+    "mini": {
+      "width": 22, "height": 22, "radius": "$radius.small", "bg": "$color.bg.raised", "color": "$color.text.secondary",
+      "border": "1px solid $color.line.main", "font": "$font.mono", "size": "$size.tiny", "weight": "$weight.heavy",
+      "hover": { "color": "$color.text.primary", "borderColor": "$color.line.strong" },
+      "variants": {
+        "solo": { "on": { "bg": "$color.ok", "color": "$color.text.inverse", "borderColor": "$color.ok" } },
+        "mute": { "on": { "bg": "$color.warn", "color": "$color.text.inverse", "borderColor": "$color.warn" } },
+        "arm": { "on": { "bg": "$color.error", "color": "$color.text.inverse", "borderColor": "$color.error" } },
+        "close": { "bg": "transparent", "borderColor": "transparent", "hover": { "color": "$color.error" } }
+      }
+    },
+    "help": {
+      "width": 22, "height": 22, "radius": "$radius.pill", "border": "1px solid $color.line.strong",
+      "color": "$color.text.dim", "font": "$font.ui", "size": "$size.small", "weight": "$weight.heavy",
+      "hover": { "color": "$color.text.primary" },
+      "on": { "bg": "$color.accent", "color": "$color.accentInk", "borderColor": "$color.accent" }
+    },
+
+    "field": {
+      "height": "$size.hit", "padding": [0, 10], "gap": 6, "radius": "$radius.control",
+      "bg": "$color.bg.input", "color": "$color.text.primary", "border": "1px solid $color.line.strong",
+      "font": "$font.ui", "size": "$size.body",
+      "hover": { "borderColor": "$color.text.dim" },
+      "focus": { "borderColor": "$color.accent", "shadow": "0 0 0 3px $color.accent/25" },
+      "error": { "borderColor": "$color.error" },
+      "disabled": { "opacity": 0.45 },
+      "icon": { "color": "$color.text.dim" },
+      "unit": { "color": "$color.text.dim", "font": "$font.mono", "size": "$size.small" },
+      "variants": {
+        "search": { "radius": "$radius.pill", "padding": [0, 12] },
+        "code": { "font": "$font.mono", "size": 13, "bg": "$color.bg.code", "height": "auto", "padding": 10, "lineHeight": 1.5 },
+        "select": {}
+      }
+    },
+    "stepper": {
+      "height": "$size.hit", "radius": "$radius.control", "bg": "$color.bg.input", "border": "1px solid $color.line.strong",
+      "focus": { "borderColor": "$color.accent" },
+      "step": { "width": 26, "color": "$color.text.secondary", "size": "$size.large", "hover": { "color": "$color.text.primary", "bg": "$color.bg.hover" }, "pressed": { "bg": "$color.line.main" } },
+      "input": { "color": "$color.text.primary", "font": "$font.mono", "size": "$size.body", "width": 56, "align": "center" },
+      "unit": { "color": "$color.text.dim", "font": "$font.mono", "size": "$size.small", "padding": [0, 8, 0, 0] }
+    },
+    "slider": {
+      "gap": 10, "height": "$size.hit",
+      "label": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.small", "idle": { "color": "$color.text.dim" } },
+      "track": { "height": 4, "radius": "$radius.pill", "bg": "$color.line.main" },
+      "fill": { "radius": "$radius.pill", "bg": "$color.accent" },
+      "thumb": { "width": 16, "height": 16, "radius": "$radius.pill", "bg": "#ffffff", "border": "2px solid $color.accent", "hover": { "shadow": "0 0 0 5px $color.accent/25" } },
+      "value": { "color": "$color.text.secondary", "font": "$font.mono", "size": "$size.small", "minWidth": 48, "align": "right", "hover": { "color": "$color.text.primary" } },
+      "disabled": { "opacity": 0.4 }
+    },
+    "colorwell": {
+      "width": 30, "height": 30, "radius": 6, "border": "1px solid $color.line.strong",
+      "hover": { "borderColor": "$color.text.dim" },
+      "selected": { "outline": "2px solid $color.select", "outlineOffset": 2 }
+    },
+    "key": {
+      "height": "$size.hit", "padding": [0, 12], "radius": "$radius.control", "bg": "$color.bg.raised",
+      "border": "1px solid $color.line.strong",
+      "color": "$color.text.primary", "font": "$font.mono", "size": "$size.small", "weight": "$weight.heavy",
+      "hover": { "borderColor": "$color.text.dim" },
+      "waiting": { "bg": "$color.select/20", "borderColor": "$color.select", "color": "$color.select" }
+    },
+
+    "card": {
+      "radius": "$radius.card", "bg": "$color.bg.panel", "border": "1px solid $color.line.main",
+      "head": { "padding": [10, 12], "gap": 8, "borderBottom": "1px solid $color.line.soft" },
+      "title": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body", "weight": "$weight.heavy" },
+      "sub": { "color": "$color.text.dim", "size": "$size.small" },
+      "body": { "padding": 12, "gap": 8, "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body" },
+      "variants": { "flat": { "bg": "transparent", "border": "none" } }
+    },
+    "section": {
+      "radius": "$radius.control", "bg": "$color.bg.panel", "borderLeft": "3px solid $color.line.strong",
+      "head": { "padding": [8, 12], "color": "$color.text.secondary", "font": "$font.ui", "size": "$size.small", "weight": "$weight.heavy", "case": "uppercase", "tracking": 0.06 },
+      "body": { "padding": [4, 12, 10, 12], "gap": 6 },
+      "variants": {
+        "when": { "borderLeft": "3px solid $color.tone.when", "bg": "$color.tone.when/8", "head": { "color": "$color.tone.when" } },
+        "if":   { "borderLeft": "3px solid $color.tone.if",   "bg": "$color.tone.if/8",   "head": { "color": "$color.tone.if" } },
+        "then": { "borderLeft": "3px solid $color.tone.then", "bg": "$color.tone.then/8", "head": { "color": "$color.tone.then" } }
+      }
+    },
+    "fold": {
+      "radius": "$radius.card", "bg": "$color.bg.panel", "border": "1px solid $color.line.main",
+      "head": { "padding": [10, 12], "gap": 8, "hover": { "bg": "$color.bg.hover" } },
+      "chevron": { "color": "$color.text.dim", "size": "$size.small", "transition": "transform $motion.fast" },
+      "title": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body", "weight": "$weight.heavy" },
+      "sub": { "color": "$color.text.dim", "size": "$size.small" },
+      "body": { "padding": [0, 12, 12, 12], "gap": 8 },
+      "open": { "head": { "borderBottom": "1px solid $color.line.soft" } }
+    },
+    "heading": {
+      "gap": 8, "padding": [14, 0, 6, 0], "color": "$color.text.secondary", "font": "$font.ui",
+      "size": "$size.small", "weight": "$weight.heavy", "case": "uppercase", "tracking": 0.06,
+      "icon": { "color": "$color.text.dim" }
+    },
+    "row": {
+      "minHeight": 52, "padding": [6, 10], "gap": 10, "radius": "$radius.card",
+      "bg": "$color.bg.panel", "border": "1px solid $color.line.main", "color": "$color.text.primary", "font": "$font.ui",
+      "hover": { "bg": "$color.bg.hover" },
+      "selected": { "borderColor": "$color.select" },
+      "bad": { "borderColor": "$color.error/70", "bg": "$color.error/8" },
+      "thumb": { "width": 40, "height": 40, "radius": 6, "bg": "$color.bg.sunken" },
+      "mark": { "color": "$color.text.secondary", "iconSize": 20 },
+      "name": { "size": "$size.body", "weight": "$weight.strong" },
+      "sub": { "size": "$size.small", "color": "$color.text.dim" },
+      "end": { "color": "$color.text.dim" }
+    },
+    "tile": {
+      "width": 80, "radius": "$radius.control", "bg": "$color.bg.sunken", "border": "1px solid $color.line.main",
+      "hover": { "borderColor": "$color.line.strong" },
+      "selected": { "outline": "2px solid $color.select", "outlineOffset": -2 },
+      "pic": { "height": 64 },
+      "caption": { "padding": [3, 6], "bg": "$color.bg.panel/85", "color": "$color.text.secondary", "font": "$font.ui", "size": "$size.tiny" }
+    },
+    "strip": {
+      "gap": 6, "padding": 6, "bg": "$color.bg.sunken", "radius": "$radius.control",
+      "item": {
+        "width": 44, "height": 44, "radius": 6, "border": "1px solid $color.line.main",
+        "hover": { "borderColor": "$color.line.strong" },
+        "selected": { "outline": "2px solid $color.accent", "outlineOffset": 1 }
+      }
+    },
+
+    "rail": {
+      "width": 212, "padding": 8, "gap": 2, "bg": "$color.bg.rail", "borderRight": "1px solid $color.line.soft",
+      "item": {
+        "height": 38, "padding": [0, 10], "gap": 10, "radius": "$radius.control", "color": "$color.text.secondary",
+        "font": "$font.ui", "size": "$size.body", "weight": "$weight.strong", "iconSize": "$size.icon",
+        "hover": { "bg": "$color.bg.hover", "color": "$color.text.primary" },
+        "on": { "bg": "$color.accent/30", "color": "$color.text.primary" }
+      },
+      "badge": {},
+      "sep": { "height": 1, "bg": "$color.line.soft", "margin": [6, 4] },
+      "variants": { "compact": { "width": 64, "item": { "padding": 0 } } }
+    },
+    "topbar": {
+      "height": 48, "padding": [0, 10], "gap": 8, "bg": "$color.bg.panel", "borderBottom": "1px solid $color.line.main",
+      "title": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.large", "weight": "$weight.heavy" },
+      "sub": { "color": "$color.text.dim", "font": "$font.ui", "size": "$size.small" }
+    },
+    "tabs": {
+      "gap": 2, "borderBottom": "1px solid $color.line.main",
+      "tab": {
+        "height": 36, "padding": [0, 14], "color": "$color.text.secondary", "font": "$font.ui", "size": "$size.body",
+        "weight": "$weight.strong", "borderBottom": "2px solid transparent",
+        "hover": { "color": "$color.text.primary" },
+        "on": { "color": "$color.text.primary", "borderBottom": "2px solid $color.accent" }
+      }
+    },
+    "bottomtabs": {
+      "height": 58, "bg": "$color.bg.panel", "borderTop": "1px solid $color.line.main",
+      "tab": { "gap": 3, "color": "$color.text.dim", "iconSize": 22, "on": { "color": "$color.accent" } },
+      "label": { "font": "$font.ui", "size": "$size.tiny", "weight": "$weight.strong" }
+    },
+    "toolbar": {
+      "gap": 4, "padding": 6, "bg": "$color.bg.panel/92", "radius": "$radius.dialog", "border": "1px solid $color.line.main",
+      "blur": 8,
+      "tool": {
+        "minWidth": 56, "height": 52, "gap": 2, "radius": "$radius.control", "color": "$color.text.secondary", "iconSize": 20,
+        "hover": { "bg": "$color.bg.hover", "color": "$color.text.primary" },
+        "on": { "bg": "$color.accent", "color": "$color.accentInk" }
+      },
+      "label": { "font": "$font.ui", "size": "$size.tiny", "weight": "$weight.strong" }
+    },
+    "sheet": {
+      "bg": "$color.bg.overlay", "radius": [ "$radius.sheet", "$radius.sheet", 0, 0 ], "border": "1px solid $color.line.main",
+      "shadow": "$shadow.sheet",
+      "head": { "padding": [10, 12], "gap": 8, "borderBottom": "1px solid $color.line.soft" },
+      "title": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body", "weight": "$weight.heavy" },
+      "body": { "padding": 12, "gap": 10 },
+      "grip": { "width": 36, "height": 4, "radius": "$radius.pill", "bg": "$color.line.strong" },
+      "variants": { "side": { "radius": 0, "shadow": "none", "borderLeft": "1px solid $color.line.main" } }
+    },
+    "drawer": {
+      "bg": "$color.bg.overlay", "border": "1px solid $color.line.main", "shadow": "$shadow.menu", "radius": "$radius.dialog",
+      "head": { "padding": [10, 12], "borderBottom": "1px solid $color.line.soft", "color": "$color.text.primary", "weight": "$weight.heavy" },
+      "body": { "padding": 12 }
+    },
+
+    "scrim": { "bg": "$color.scrim" },
+    "dialog": {
+      "width": 400, "radius": "$radius.dialog", "bg": "$color.bg.overlay", "border": "1px solid $color.line.main", "shadow": "$shadow.menu",
+      "head": { "padding": [14, 16, 6, 16] },
+      "title": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.large", "weight": "$weight.heavy" },
+      "body": { "padding": [6, 16, 12, 16], "gap": 10, "color": "$color.text.secondary", "font": "$font.ui", "size": "$size.body" },
+      "foot": { "padding": [10, 16, 14, 16], "gap": 8 },
+      "variants": { "wide": { "width": 720 } }
+    },
+    "menu": {
+      "minWidth": 220, "padding": 4, "radius": "$radius.card", "bg": "$color.bg.overlay", "border": "1px solid $color.line.main", "shadow": "$shadow.menu",
+      "item": {
+        "height": 32, "padding": [0, 10], "gap": 10, "radius": 6, "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body",
+        "hover": { "bg": "$color.accent", "color": "$color.accentInk" },
+        "disabled": { "opacity": 0.4 }
+      },
+      "shortcut": { "color": "$color.text.dim", "font": "$font.mono", "size": "$size.small" },
+      "sep": { "height": 1, "margin": [4, 6], "bg": "$color.line.soft" },
+      "group": { "padding": [8, 10, 2, 10], "color": "$color.text.dim", "font": "$font.ui", "size": "$size.tiny", "weight": "$weight.heavy", "case": "uppercase", "tracking": 0.06 },
+      "danger": { "color": "$color.error" }
+    },
+    "toast": {
+      "padding": [10, 12], "gap": 10, "radius": "$radius.card", "bg": "$color.bg.overlay", "border": "1px solid $color.line.strong",
+      "shadow": "$shadow.toast", "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body",
+      "close": { "color": "$color.text.dim", "hover": { "color": "$color.text.primary" } },
+      "variants": {
+        "ok": { "borderLeft": "3px solid $color.ok" },
+        "warn": { "borderLeft": "3px solid $color.warn" },
+        "error": { "borderLeft": "3px solid $color.error" }
+      }
+    },
+    "tooltip": {
+      "padding": [5, 8], "radius": 6, "bg": "$color.text.primary", "color": "$color.text.inverse", "font": "$font.ui",
+      "size": "$size.small", "weight": "$weight.strong", "shadow": "$shadow.toast"
+    },
+
+    "pill": {
+      "height": 26, "padding": [0, 10], "gap": 6, "radius": "$radius.pill", "bg": "$color.bg.raised", "border": "1px solid $color.line.main",
+      "color": "$color.text.secondary", "font": "$font.ui", "size": "$size.small", "weight": "$weight.strong",
+      "variants": {
+        "ok": { "color": "$color.ok", "borderColor": "$color.ok/45", "bg": "$color.ok/10" },
+        "warn": { "color": "$color.warn", "borderColor": "$color.warn/45", "bg": "$color.warn/10" },
+        "error": { "color": "$color.error", "borderColor": "$color.error/45", "bg": "$color.error/10" }
+      }
+    },
+    "callout": {
+      "padding": [10, 12], "gap": 10, "radius": "$radius.control", "border": "1px solid $color.line.main", "bg": "$color.bg.panel",
+      "color": "$color.text.primary", "font": "$font.ui", "size": "$size.body",
+      "title": { "weight": "$weight.heavy" },
+      "variants": {
+        "error": { "bg": "$color.error/10", "borderColor": "$color.error/45", "icon": { "color": "$color.error" } },
+        "warn": { "bg": "$color.warn/10", "borderColor": "$color.warn/45", "icon": { "color": "$color.warn" } },
+        "info": { "bg": "$color.accent/10", "borderColor": "$color.accent/45", "icon": { "color": "$color.accent" } }
+      }
+    },
+    "badge": {
+      "minWidth": 18, "height": 18, "padding": [0, 5], "radius": "$radius.pill", "bg": "$color.accent", "color": "$color.accentInk",
+      "font": "$font.mono", "size": "$size.tiny", "weight": "$weight.heavy",
+      "variants": { "error": { "bg": "$color.error" }, "muted": { "bg": "$color.line.strong", "color": "$color.text.primary" } }
+    },
+    "dot": {
+      "width": 8, "height": 8, "radius": "$radius.pill", "bg": "$color.select",
+      "variants": { "ok": { "bg": "$color.ok" }, "warn": { "bg": "$color.warn" }, "error": { "bg": "$color.error" } }
+    },
+    "progress": {
+      "gap": 6,
+      "track": { "height": 6, "radius": "$radius.pill", "bg": "$color.line.main" },
+      "fill": { "radius": "$radius.pill", "bg": "$color.accent" },
+      "label": { "color": "$color.text.dim", "font": "$font.mono", "size": "$size.tiny" }
+    },
+    "boot": {
+      "bg": "$color.bg.app", "gap": 12, "padding": 24,
+      "title": { "color": "$color.text.primary", "font": "$font.ui", "size": "$size.hero", "weight": "$weight.heavy" },
+      "track": { "height": 4, "radius": "$radius.pill", "bg": "$color.line.main", "width": 320 },
+      "fill": { "radius": "$radius.pill", "bg": "$color.accent" },
+      "status": { "color": "$color.text.secondary", "font": "$font.mono", "size": "$size.small" },
+      "log": { "width": 420, "maxWidth": "100%", "height": 120, "padding": 8, "radius": "$radius.control", "bg": "$color.bg.code", "border": "1px solid $color.line.soft" },
+      "line": { "color": "$color.text.dim", "font": "$font.mono", "size": "$size.tiny", "lineHeight": 1.6 }
+    },
+    "log": {
+      "padding": 8, "radius": "$radius.control", "bg": "$color.bg.code", "border": "1px solid $color.line.soft",
+      "line": { "color": "$color.text.secondary", "font": "$font.mono", "size": "$size.small", "lineHeight": 1.55 },
+      "bad": { "color": "$color.error" },
+      "ok": { "color": "$color.ok" }
+    },
+    "empty": {
+      "padding": 24, "gap": 8, "radius": "$radius.card", "border": "1px dashed $color.line.strong",
+      "icon": { "color": "$color.text.dim", "iconSize": 32 },
+      "text": { "color": "$color.text.dim", "font": "$font.ui", "size": "$size.body", "align": "center" }
+    },
+    "kbd": {
+      "padding": [1, 6], "radius": "$radius.small", "bg": "$color.bg.raised", "border": "1px solid $color.line.strong",
+      "borderBottom": "2px solid $color.line.strong", "color": "$color.text.primary", "font": "$font.mono", "size": "$size.tiny"
+    },
+
+    "transport": {
+      "gap": 4, "padding": 4, "radius": "$radius.card", "bg": "$color.bg.input", "border": "1px solid $color.line.main",
+      "button": {
+        "width": "$size.hit", "height": "$size.hit", "radius": "$radius.control", "color": "$color.text.secondary", "iconSize": "$size.icon",
+        "hover": { "bg": "$color.bg.hover", "color": "$color.text.primary" },
+        "on": { "bg": "$color.accent", "color": "$color.accentInk" }
+      },
+      "rec": { "color": "$color.error", "on": { "bg": "$color.error", "color": "#ffffff" } },
+      "display": { "padding": [0, 10], "color": "$color.playhead", "font": "$font.mono", "size": "$size.large", "weight": "$weight.strong", "bg": "$color.bg.sunken", "radius": 6, "height": "$size.hitSmall" }
+    },
+    "meter": {
+      "height": 10, "radius": 3, "bg": "$color.bg.sunken", "border": "1px solid $color.line.soft",
+      "fill": { "bg": "linear-gradient(90deg, $color.ok 0%, $color.ok 70%, $color.warn 85%, $color.error 100%)" },
+      "peak": { "width": 2, "bg": "$color.text.primary" },
+      "value": { "color": "$color.text.secondary", "font": "$font.mono", "size": "$size.tiny" },
+      "variants": { "reduction": { "fill": { "bg": "$color.warn" } } }
+    },
+    "keys": {
+      "height": 90, "radius": 6, "bg": "$color.keys.black",
+      "white": { "bg": "$color.keys.white", "border": "1px solid #9a9a9a", "radius": [0, 0, 4, 4], "pressed": { "bg": "$color.accent" }, "lit": { "bg": "$color.accent/60" } },
+      "black": { "bg": "$color.keys.black", "radius": [0, 0, 3, 3], "pressed": { "bg": "$color.accent" }, "lit": { "bg": "$color.accent/80" } }
+    },
+    "pad": {
+      "width": 64, "height": 56, "padding": 6, "radius": "$radius.control", "bg": "$color.bg.raised", "border": "1px solid $color.line.strong",
+      "color": "$color.text.primary", "font": "$font.ui", "size": "$size.small", "weight": "$weight.strong",
+      "hover": { "borderColor": "$color.text.dim" },
+      "on": { "bg": "$color.accent", "color": "$color.accentInk", "sub": { "color": "$color.accentInk/70" } },
+      "selected": { "borderColor": "$color.accent" },
+      "lit": { "shadow": "0 0 12px $color.ok/60", "borderColor": "$color.ok" },
+      "sub": { "color": "$color.text.dim", "size": "$size.tiny" }
+    },
+
+    "icon": {
+      "iconSize": "$size.icon",
+      "variants": { "missing": { "outline": "1px dashed $color.warn/70", "outlineOffset": 1, "radius": 3 } }
+    }
+  },
+
+  "canvas": {
+    "common": {
+      "stage": "$color.bg.sunken",
+      "checker.a": { "fill": "$color.checker.a", "size": 8 },
+      "checker.b": { "fill": "$color.checker.b", "size": 8 },
+      "pixelGrid": "$color.text.primary/8",
+      "imageBorder": "$color.text.primary/35",
+      "marquee": { "color": "#ffffff", "dash": [5, 3] },
+      "marquee.shadow": { "color": "#000000", "dash": [5, 3] },
+      "onion": { "alpha": 0.35 },
+      "dimOthers": { "alpha": 0.35 },
+      "cursor": "$color.text.primary/80",
+      "handle": { "fill": "$color.select", "color": "$color.bg.sunken", "size": 7 },
+      "handle.hot": { "fill": "#ffffff", "color": "$color.bg.sunken", "size": 8 },
+      "handle.idle": { "fill": "$color.text.dim", "color": "$color.bg.sunken", "size": 6 },
+      "label": { "fill": "$color.bg.panel/90", "color": "$color.text.primary", "font": "600 11px $font.ui" },
+      "grid.minor": "$color.line.main/55",
+      "grid.major": "$color.line.main",
+      "guide": { "color": "$color.accent", "dash": [4, 4] },
+      "selected": { "color": "$color.select", "width": 2 },
+      "playhead": { "color": "$color.playhead", "width": 2 },
+      "loop": { "fill": "$color.accent/18", "color": "$color.accent", "width": 1.5 },
+      "ruler": { "fill": "$color.bg.panel", "color": "$color.text.dim", "font": "10px $font.mono" },
+      "problem": { "fill": "$color.error/30", "color": "$color.error", "width": 2 },
+      "warning": { "fill": "$color.warn/18", "color": "$color.warn", "width": 2 },
+      "text": { "color": "$color.text.secondary", "font": "11px $font.ui" }
+    },
+    "map": {
+      "room.fill": "$color.bg.raised/70",
+      "room.line": "$color.text.secondary/70",
+      "corner.snap": { "fill": "$color.text.dim", "size": 5 },
+      "wall.selected": { "color": "$color.accent", "width": 3 },
+      "draw": { "color": "$color.accent", "width": 2 },
+      "pick": { "color": "$color.accent/70", "width": 1 },
+      "marker": { "fill": "$color.bg.panel/92", "color": "$color.text.primary", "width": 3, "radius": 6, "font": "600 11px $font.ui" },
+      "marker.spawn": "$color.marker.spawn",
+      "marker.light": "$color.marker.light",
+      "marker.monster": "$color.marker.monster",
+      "marker.prop": "$color.marker.prop",
+      "trigger.when": { "color": "$color.tone.when", "width": 2 },
+      "trigger.if": { "color": "$color.tone.if", "width": 2 },
+      "trigger.then": { "color": "$color.tone.then", "width": 2 },
+      "climb": { "color": "$color.ok", "width": 2 },
+      "path": { "color": "$color.path", "width": 2 },
+      "path.active": { "color": "$color.pathActive", "width": 2.5 },
+      "path.chord": { "color": "$color.path/45", "dash": [3, 3] },
+      "cell": { "color": "$color.text.secondary", "width": 1 },
+      "neighbour": { "fill": "rgba(0,0,0,.5)" },
+      "seam.joined": { "color": "$color.ok", "width": 2 },
+      "seam.oneway": { "color": "$color.warn", "width": 2 },
+      "seam.walls": { "color": "$color.text.dim", "width": 2 },
+      "seam.loose": { "color": "$color.error", "width": 2 }
+    },
+    "graph": {
+      "board": "$color.bg.sunken",
+      "dot": { "fill": "$color.line.main", "size": 24 },
+      "node": { "fill": "$color.bg.panel", "color": "$color.line.strong", "radius": 10 },
+      "node.title": { "color": "$color.text.primary", "font": "600 12px $font.ui" },
+      "node.text": { "color": "$color.text.secondary", "font": "11px $font.ui" },
+      "node.field": { "fill": "$color.bg.input", "color": "$color.line.strong", "radius": 5 },
+      "node.selected": { "color": "$color.select", "width": 2 },
+      "head.event": "$color.node.event",
+      "head.condition": "$color.node.condition",
+      "head.action": "$color.node.action",
+      "head.flow": "$color.node.flow",
+      "head.data": "$color.node.data",
+      "head.camera": "$color.node.camera",
+      "pin.exec": { "fill": "$color.text.primary", "size": 7 },
+      "pin.data": { "color": "$color.ok", "size": 5, "width": 2 },
+      "pin.valid": { "color": "$color.ok", "width": 2 },
+      "wire.exec": { "color": "$color.text.primary", "width": 3 },
+      "wire.data": { "color": "$color.ok", "width": 2.5 },
+      "wire.selected": { "color": "$color.select", "width": 4 },
+      "wire.drag": { "color": "$color.text.primary/70", "width": 2, "dash": [6, 4] },
+      "bend": { "fill": "$color.text.secondary", "size": 5 },
+      "bend.selected": { "fill": "$color.select", "size": 6 },
+      "note.alpha": { "alpha": 0.28 },
+      "state": { "fill": "$color.bg.panel", "color": "$color.line.strong", "radius": 10, "width": 1 },
+      "state.selected": { "color": "$color.select", "width": 2 },
+      "state.bad": { "color": "$color.error", "width": 2 },
+      "state.initial": "$color.select",
+      "edge.transition": { "color": "$color.text.secondary", "width": 1.5 },
+      "edge.next": { "color": "$color.tone.when", "width": 1.5, "dash": [6, 4] },
+      "edge.goto": { "color": "$color.ok", "width": 1.5, "dash": [2, 3] },
+      "edge.label": { "color": "$color.text.secondary", "fill": "$color.bg.sunken", "font": "11px $font.ui" }
+    },
+    "preview": {
+      "floor": { "color": "$color.text.dim", "width": 1.5 },
+      "figure": "$color.text.secondary/55",
+      "swing.ring": "$color.line.main",
+      "swing.reach": { "color": "$color.text.dim", "dash": [3, 3] },
+      "swing.range": { "fill": "$color.ok/22", "color": "$color.ok" },
+      "swing.current": { "fill": "$color.select/45", "color": "$color.select" },
+      "swing.body": { "fill": "$color.text.secondary", "size": 6 },
+      "thumb.room": "$color.bg.raised",
+      "thumb.line": "$color.text.secondary/55",
+      "thumb.monster": "$color.marker.monster",
+      "thumb.prop": "$color.marker.prop",
+      "thumb.spawn": "$color.marker.spawn",
+      "slice.guide": { "color": "$color.select", "dash": [4, 3] },
+      "cutter.divider": { "color": "$color.select", "width": 1 },
+      "cutter.current": { "color": "$color.accent", "width": 2 },
+      "cutter.leftover": { "fill": "$color.error/30" }
+    },
+    "designer": {
+      "frame": { "fill": "$color.bg.sunken", "color": "$color.line.strong", "radius": 18, "width": 2 },
+      "safe": { "color": "$color.text.dim", "dash": [4, 4] },
+      "panel": { "color": "$color.select", "dash": [5, 4] },
+      "panel.selected": { "color": "$color.select", "width": 2 },
+      "slot": { "color": "$color.ok", "dash": [4, 3] },
+      "slot.selected": { "color": "$color.ok", "fill": "$color.ok/15", "width": 2 },
+      "slot.hidden": { "color": "$color.ok/45" },
+      "slot.tag": { "fill": "$color.ok", "color": "$color.text.inverse", "font": "600 10px $font.ui" },
+      "decor": { "color": "$color.marker.prop", "dash": [1, 3] },
+      "hit": { "color": "$color.select", "dash": [4, 3] },
+      "stick": { "color": "$color.text.dim", "dash": [6, 4] },
+      "touchbtn": { "fill": "$color.bg.raised/55", "color": "$color.text.primary/30", "font": "600 11px $font.ui" }
+    },
+    "rig": {
+      "ground": { "color": "$color.select", "width": 2 },
+      "mirror": { "color": "$color.accent", "dash": [4, 4] },
+      "bounds": "$color.accent/50",
+      "bone": { "color": "$color.accent", "fill": "$color.accent/35", "width": 2 },
+      "bone.selected": { "color": "$color.select", "fill": "$color.select/35", "width": 2 },
+      "root": { "fill": "$color.bg.sunken", "size": 5, "width": 2 },
+      "tip": { "size": 3.5 },
+      "pivot": { "color": "$color.guide", "size": 7, "width": 2 },
+      "rubber": { "color": "$color.select", "dash": [6, 4] },
+      "facing": { "color": "$color.select", "width": 2 },
+      "viewLabel": { "fill": "rgba(0,0,0,.55)", "color": "#ffffff", "font": "bold 13px $font.ui" },
+      "boneLabel": { "color": "rgba(255,255,255,.85)", "font": "11px $font.ui" }
+    },
+    "timeline": {
+      "bg": "$color.bg.sunken",
+      "row": "$color.bg.panel",
+      "row.alt": "$color.bg.raised/45",
+      "header": { "fill": "$color.bg.panel", "color": "$color.text.dim", "font": "10px $font.mono" },
+      "current": { "fill": "$color.playhead/12", "color": "$color.playhead" },
+      "key": { "fill": "$color.select", "size": 5 },
+      "key.selected": { "fill": "#ffffff", "color": "$color.select", "size": 6 },
+      "label": { "color": "$color.text.secondary", "font": "11px $font.ui" }
+    },
+    "paint": {
+      "tileGrid": "$color.accent/70",
+      "symmetry": { "color": "$color.guide/80", "dash": [4, 4] },
+      "wrapDim": { "fill": "rgba(0,0,0,.35)" },
+      "sky.face": { "color": "$color.select", "width": 1.5 },
+      "sky.dim": { "fill": "rgba(0,0,0,.45)" },
+      "sky.label": { "fill": "rgba(0,0,0,.55)", "color": "#ffffff", "font": "600 12px $font.ui" },
+      "horizon": { "color": "$color.select", "dash": [6, 4] }
+    },
+    "audio": {
+      "bg": "$color.bg.sunken",
+      "mid": "$color.line.main",
+      "wave": { "color": "$color.wave", "width": 1.5 },
+      "wave.over": "$color.error",
+      "wave.full": { "color": "$color.warn/40", "dash": [3, 3] },
+      "envelope": { "color": "$color.accent", "fill": "$color.accent/12", "width": 2 },
+      "envelope.sustain": { "color": "$color.accent/50", "dash": [4, 3], "width": 2 },
+      "envelope.handle": { "fill": "$color.keys.white", "size": 5 },
+      "spectrum": "$color.accent/28",
+      "scope": { "color": "$color.wave", "width": 1.5 },
+      "harmonic": "$color.wave/65",
+      "harmonic.strong": "$color.wave",
+      "shaper": { "color": "$color.warn", "width": 2 },
+      "filter.danger": { "fill": "$color.error/10" },
+      "eq.low": "$color.warn",
+      "eq.mid": "$color.ok",
+      "eq.high": "#d678d6",
+      "grid": "$color.line.main/70",
+      "grid.label": { "color": "$color.text.dim", "font": "10px $font.mono" },
+      "bar": "$color.line.strong",
+      "beat": "$color.line.main/60",
+      "songEnd": { "fill": "rgba(0,0,0,.35)" },
+      "lane": "$color.bg.sunken",
+      "lane.alt": "$color.bg.panel/55",
+      "note.selected": { "color": "#ffffff", "width": 1.5 },
+      "note.ghost": { "alpha": 0.25 },
+      "note.playing": "#ffffff",
+      "key.white": "$color.keys.white",
+      "key.black": "$color.keys.black",
+      "key.lit": "$color.accent",
+      "cc": { "color": "$color.warn", "size": 3, "width": 1.5 },
+      "density": "$color.wave/35",
+      "activity": "$color.ok",
+      "field.ring": { "color": "$color.line.strong", "dash": [2, 4] },
+      "field.played": "$color.ok",
+      "field.refused": "$color.error",
+      "field.listener": "$color.accent",
+      "flow.node": { "fill": "$color.bg.raised", "color": "$color.line.strong", "radius": 8 },
+      "flow.line": { "color": "$color.text.dim", "width": 1.5 },
+      "flow.text": { "color": "$color.text.primary", "font": "12px $font.ui" },
+      "match.dim": { "fill": "rgba(10,12,16,.7)" },
+      "match.edge": { "color": "$color.accent", "width": 2 }
+    }
+  }
+}

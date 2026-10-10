@@ -1,0 +1,34 @@
+{
+  "format": "dnp-skin",
+  "version": 1,
+  "id": "sample",
+  "name": "Sample: amber",
+  "about": "Shows how a skin is made: it extends the default, changes a few tokens, draws a handful of icons and gives the primary button a 9-slice picture. Delete or copy freely.",
+  "extends": "default",
+
+  "tokens": {
+    "color": {
+      "accent": "#ffb454",
+      "accentHover": "#ffc372",
+      "accentInk": "#1a1408",
+      "select": "#5ec8ff"
+    },
+    "radius": { "control": 4, "card": 6, "dialog": 8, "sheet": 10 }
+  },
+  "modes": {
+    "light": { "color": { "accent": "#c7781a", "accentHover": "#d6862a", "accentInk": "#ffffff", "select": "#1f8fd0" } }
+  },
+
+  "icons": { "dir": "icons", "ext": "svg", "tint": true, "grid": 24, "stroke": 1.75 },
+
+  "components": {
+    "button": {
+      "variants": {
+        "primary": {
+          "image": "images/button-primary.svg", "slice": 6, "bg": "transparent",
+          "hover": { "image": "images/button-primary.svg", "slice": 6, "bg": "transparent", "opacity": 0.92 }
+        }
+      }
+    }
+  }
+}
