@@ -8,6 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { merge, flatten, makeResolver, parseColor, loadChain, compile, componentCss, declarations } from '../lib/skin.js';
 import { bake } from '../lib/bake.js';
+import { colorParts } from '../lib/runtime.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 let n = 0;
@@ -89,6 +90,13 @@ await test('fonts: @font-face, and ligatures: false reaches the root rule', () =
   assert.match(c.fontCss, /font-family: "Px"; src: url\("f.ttf"\); font-weight: 400 700/);
   assert.match(c.css["dark/mouse"], /\{ font-variant-ligatures: none; /);
   assert.doesNotMatch(compile({}).css['dark/mouse'], /ligatures/);
+});
+
+await test('colorParts: css colours to three.js numbers', () => {
+  assert.deepEqual(colorParts('#5b8fd6'), { hex: 0x5b8fd6, alpha: 1 });
+  assert.deepEqual(colorParts('#fff'), { hex: 0xffffff, alpha: 1 });
+  assert.deepEqual(colorParts('rgba(91,143,214,0.5)'), { hex: 0x5b8fd6, alpha: 0.5 });
+  assert.deepEqual(colorParts('nonsense'), { hex: 0xff00ff, alpha: 1 });
 });
 
 await test('validation names what is wrong', () => {

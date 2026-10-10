@@ -65,6 +65,8 @@ A tool vendors three files:
 - `kit.css` (structure only);
 - a baked bundle (`node uikit/build.js claude --js tool/vendor/claude.skin.js`).
 
+`node uikit/vendor.js <tool>/vendor/uikit` does all three for every shipped skin, and `--check` tells a test when the copy is stale. The studio's brief, [docs/STUDIO_SKINS.md](../docs/STUDIO_SKINS.md), is the worked example.
+
 It needs no build step and has no dependency on the repo.
 
 ```js

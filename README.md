@@ -12,6 +12,7 @@ The in-game UI is not part of this; modules style it themselves (`docs/UI_STYLES
 node uikit/serve.js          # then open http://localhost:8960/testbench/
 node uikit/test/skin.test.js # compiler tests + every shipped skin must be clean
 node uikit/build.js claude   # bake a skin into dist/claude.skin.json (add --js for an ES module)
+node uikit/vendor.js <dir>   # put every shipped skin, runtime.js and kit.css into a tool (--check: is it stale?)
 ```
 
 ## Testbench
@@ -52,4 +53,4 @@ The format is in [SKIN_FORMAT.md](SKIN_FORMAT.md). How the tools adopt it is in 
 | `skins/ps1/` | late-90s 3D console menus: blue gradient windows, hand cursor, dither, scanlines; modes dark and console |
 | `skins/sample/` | how a skin is made: a few tokens, 14 icons, a 9-slice button |
 | `testbench/` | the page |
-| `serve.js`, `build.js`, `test/` | dev server, baker, tests |
+| `serve.js`, `build.js`, `vendor.js`, `test/` | dev server, baker, vendoring into a tool (`skins/index.json` `ship`), tests |
