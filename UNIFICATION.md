@@ -87,7 +87,7 @@ skin.onChange(() => redrawCanvases())                              // mode / ski
 
 The studio already talks to its editors over the suite protocol (`suite-sdk.js`). One more message keeps an embedded editor in the studio's skin and mode.
 
-> **Proposed, not built:** host → editor `{ t: 'skin', bundle, mode, pointer }`, sent after `init` and again whenever the user changes skin or mode.
+> **Built in the studio** (2026-10-10; docs/PLUGINS.md, "Wearing the studio's skin"): host → editor `{ t: 'skin', bundle, mode, pointer }`, sent after `init` and again whenever the user changes skin or mode.
 > - An editor that understands it lists `'skin'` in the `caps` of its `ready`.
 > - On the message it calls `skin.replace(bundle)`, then `skin.setMode(mode)` and `skin.setPointer(pointer)`.
 > - An editor that does not know the message keeps its own baked default, which is the same skin anyway.
