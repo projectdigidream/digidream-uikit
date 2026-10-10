@@ -51,6 +51,7 @@ The format is in [SKIN_FORMAT.md](SKIN_FORMAT.md). How the tools adopt it is in 
 | `skins/paper/` | modern and light-first: warm paper, ink text, terracotta accent, soft shadows, serif headings, line icons; modes day and night |
 | `skins/90s/` | desktop software of the late 90s: bevels, title bars, pixel icons; modes classic and night |
 | `skins/ps1/` | late-90s 3D console menus: blue gradient windows, hand cursor, dither, scanlines; modes dark and console |
+| `skins/aero/` | Frutiger Aero, mid-2000s: frosted glass over a sky, glossy aqua buttons, lime progress, orb icons; modes day and night |
 | `skins/sample/` | how a skin is made: a few tokens, 14 icons, a 9-slice button |
 | `testbench/` | the page |
 | `serve.js`, `build.js`, `vendor.js`, `test/` | dev server, baker, vendoring into a tool (`skins/index.json` `ship`), tests |

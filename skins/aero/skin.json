@@ -1,0 +1,335 @@
+{
+  "format": "dnp-skin",
+  "version": 1,
+  "id": "aero",
+  "name": "Frutiger Aero",
+  "about": "Mid-2000s optimism: frosted glass panes over a bright sky, glossy aqua buttons, lime-green progress, soft glows, bubbles and orbs, humanist sans. Modes: day (sky and grass) and night (deep ocean glass).",
+  "extends": "claude",
+
+  "tokens": {
+    "color": {
+      "bg": {
+        "app": "#d8eefa", "rail": "#e6f5fc", "panel": "#f4fbfe", "raised": "#ffffff", "hover": "#e8f6fd",
+        "input": "#ffffff", "overlay": "#f7fcff", "code": "#f2f9fd", "sunken": "#eaf6fc"
+      },
+      "line": { "soft": "#d3e9f5", "main": "#a9d0e6", "strong": "#6fa8c8" },
+      "text": { "primary": "#123047", "secondary": "#3b6079", "dim": "#7b9bb0", "inverse": "#ffffff" },
+      "accent": "#1e9ee0",
+      "accentHover": "#35b4f0",
+      "accentInk": "#ffffff",
+      "select": "#5fb82a",
+      "playhead": "#ff7a2a",
+      "ok": "#4cae1f",
+      "warn": "#e39a12",
+      "error": "#e0383e",
+      "info": "#1e9ee0",
+      "guide": "#c040d0",
+      "wave": "#1e9ee0",
+      "scrim": "rgba(20,70,110,.25)",
+      "tone": { "when": "#e39a12", "if": "#1e9ee0", "then": "#4cae1f" },
+      "node": { "event": "#f56f6f", "condition": "#eaa52a", "action": "#2f9ee0", "flow": "#7f9fb5", "data": "#4cb83a", "camera": "#a066d8" },
+      "marker": { "spawn": "#4cae1f", "light": "#e39a12", "monster": "#e0383e", "prop": "#1e9ee0" },
+      "path": "#9b5cd6",
+      "pathActive": "#c08af0",
+      "checker": { "a": "#eef8fd", "b": "#dcedf6" },
+      "keys": { "white": "#ffffff", "black": "#1a3448" },
+
+      "sky": { "top": "#bfe6fa", "mid": "#e6f6fd", "bottom": "#eef9e4", "glowA": "rgba(255,255,255,.9)", "glowB": "rgba(140,210,90,.35)" },
+      "glass": { "top": "rgba(255,255,255,.9)", "pane": "rgba(255,255,255,.66)", "low": "rgba(232,246,254,.6)", "edge": "rgba(255,255,255,.95)", "rim": "rgba(70,140,190,.35)",
+                 "denseTop": "rgba(255,255,255,.96)", "denseLow": "rgba(228,244,253,.93)" },
+      "gloss": { "top": "#ffffff", "mid": "#eef8fd", "low": "#d4ecf8", "bottom": "#e9f6fd", "border": "#93c4df",
+                 "hoverTop": "#ffffff", "hoverMid": "#e3f5fe", "hoverLow": "#bfe5f8", "hoverBottom": "#dcf3fe" },
+      "aqua": { "top": "#9be6ff", "mid": "#3cb7ee", "low": "#168fd0", "bottom": "#47c6f2", "border": "#1478b0",
+                "hoverTop": "#b8eeff", "hoverMid": "#55c6f5", "hoverLow": "#1e9ee0", "hoverBottom": "#62d2f7" },
+      "lime": { "top": "#d8f7a8", "mid": "#8ad44a", "low": "#5cae22", "bottom": "#9be05a", "border": "#4a9418" },
+      "pick": { "top": "#f1f9fe", "bottom": "#cbe8f9", "border": "#7fc4ea" },
+      "sheen": "rgba(255,255,255,.75)",
+      "textGlow": "rgba(255,255,255,.7)",
+      "glow": "#5cc8ff",
+      "lcd": { "top": "#0d3a5a", "bottom": "#1d6a96", "ink": "#bff0ff" }
+    },
+    "font": {
+      "ui": "\"Segoe UI\", Frutiger, \"Frutiger Linotype\", \"Myriad Pro\", \"Lucida Grande\", \"Helvetica Neue\", Arial, sans-serif",
+      "mono": "Consolas, \"Lucida Console\", Menlo, ui-monospace, monospace"
+    },
+    "size": { "tiny": 11, "small": 12, "body": 14, "large": 16, "title": 19, "hero": 32, "hit": 32, "hitSmall": 26, "icon": 20, "iconSmall": 16 },
+    "weight": { "normal": 400, "strong": 600, "heavy": 600 },
+    "radius": { "small": 4, "control": 7, "card": 12, "dialog": 12, "sheet": 16, "pill": 999 },
+    "shadow": {
+      "raised": "0 1px 2px rgba(20,80,130,.18)",
+      "card": "0 6px 20px rgba(20,90,140,.14), inset 0 1px 0 $color.glass.edge",
+      "menu": "0 10px 30px rgba(20,80,130,.25), inset 0 1px 0 $color.glass.edge",
+      "sheet": "0 -8px 30px rgba(20,80,130,.2)",
+      "toast": "0 10px 30px rgba(20,80,130,.25)",
+      "glow": "0 0 0 1px $color.glow, 0 0 10px $color.glow/55"
+    },
+    "pattern": {
+      "sky": "radial-gradient(ellipse 60% 40% at 15% 0%, $color.sky.glowA, transparent 70%), radial-gradient(ellipse 50% 30% at 85% 100%, $color.sky.glowB, transparent 70%), linear-gradient(180deg, $color.sky.top 0%, $color.sky.mid 60%, $color.sky.bottom 100%)",
+      "bubbles": "radial-gradient(circle at 18% 70%, rgba(255,255,255,.55) 0 18px, transparent 19px), radial-gradient(circle at 78% 30%, rgba(255,255,255,.45) 0 30px, transparent 31px), radial-gradient(circle at 60% 85%, rgba(255,255,255,.35) 0 10px, transparent 11px)",
+      "glass": "linear-gradient(180deg, $color.glass.top 0%, $color.glass.pane 45%, $color.glass.low 100%)",
+      "glassDense": "linear-gradient(180deg, $color.glass.denseTop 0%, $color.glass.denseLow 100%)",
+      "gloss": "linear-gradient(180deg, $color.gloss.top 0%, $color.gloss.mid 49%, $color.gloss.low 50%, $color.gloss.bottom 100%)",
+      "glossHover": "linear-gradient(180deg, $color.gloss.hoverTop 0%, $color.gloss.hoverMid 49%, $color.gloss.hoverLow 50%, $color.gloss.hoverBottom 100%)",
+      "glossDown": "linear-gradient(180deg, $color.gloss.low 0%, $color.gloss.mid 100%)",
+      "aqua": "linear-gradient(180deg, $color.aqua.top 0%, $color.aqua.mid 49%, $color.aqua.low 50%, $color.aqua.bottom 100%)",
+      "aquaHover": "linear-gradient(180deg, $color.aqua.hoverTop 0%, $color.aqua.hoverMid 49%, $color.aqua.hoverLow 50%, $color.aqua.hoverBottom 100%)",
+      "aquaDown": "linear-gradient(180deg, $color.aqua.low 0%, $color.aqua.mid 100%)",
+      "lime": "linear-gradient(180deg, $color.lime.top 0%, $color.lime.mid 49%, $color.lime.low 50%, $color.lime.bottom 100%)",
+      "pick": "linear-gradient(180deg, $color.pick.top, $color.pick.bottom)",
+      "title": "linear-gradient(180deg, $color.glass.top 0%, $color.glass.low 100%)",
+      "lcd": "linear-gradient(180deg, $color.lcd.top, $color.lcd.bottom)",
+      "orb": "radial-gradient(circle at 35% 30%, #ffffff 0%, #dbeef8 60%, #a9cfe4 100%)",
+      "meter": "linear-gradient(180deg, rgba(255,255,255,.55) 0 45%, transparent 50%), linear-gradient(90deg, $color.lime.mid 0%, $color.lime.mid 65%, #ffd23a 85%, $color.error 100%)"
+    },
+    "motion": { "fast": "180ms ease-out" }
+  },
+
+  "modes": {
+    "dark": null,
+    "light": null,
+    "day": {},
+    "night": {
+      "color": {
+        "bg": {
+          "app": "#071a2b", "rail": "#0b2338", "panel": "#0e2a42", "raised": "#13344f", "hover": "#184061",
+          "input": "#0a2133", "overlay": "#10304a", "code": "#081d2e", "sunken": "#06182a"
+        },
+        "line": { "soft": "#173a55", "main": "#24557a", "strong": "#3a7aa6" },
+        "text": { "primary": "#e6f6ff", "secondary": "#a9cfe6", "dim": "#6f97b2", "inverse": "#06182a" },
+        "accent": "#3cc4ff",
+        "accentHover": "#6fd5ff",
+        "accentInk": "#04121f",
+        "select": "#9be15d",
+        "playhead": "#ffa24a",
+        "ok": "#7fd654",
+        "warn": "#ffc24a",
+        "error": "#ff6a6f",
+        "info": "#3cc4ff",
+        "wave": "#3cc4ff",
+        "scrim": "rgba(0,10,20,.55)",
+        "tone": { "when": "#ffc24a", "if": "#3cc4ff", "then": "#7fd654" },
+        "marker": { "spawn": "#7fd654", "light": "#ffc24a", "monster": "#ff6a6f", "prop": "#3cc4ff" },
+        "path": "#c08af0",
+        "pathActive": "#dcb6ff",
+        "checker": { "a": "#0e2a42", "b": "#123350" },
+        "keys": { "white": "#e6f6ff", "black": "#06182a" },
+        "sky": { "top": "#06182a", "mid": "#0a2a44", "bottom": "#0b3040", "glowA": "rgba(80,200,255,.22)", "glowB": "rgba(120,230,120,.14)" },
+        "glass": { "top": "rgba(120,200,255,.20)", "pane": "rgba(20,70,110,.55)", "low": "rgba(10,40,70,.62)", "edge": "rgba(140,210,255,.30)", "rim": "rgba(0,0,0,.4)",
+                   "denseTop": "rgba(24,72,108,.94)", "denseLow": "rgba(10,36,60,.95)" },
+        "gloss": { "top": "#2d6a93", "mid": "#1b4f74", "low": "#123d5c", "bottom": "#1d5175", "border": "#3a7aa6",
+                   "hoverTop": "#3a82b0", "hoverMid": "#245f88", "hoverLow": "#18496c", "hoverBottom": "#28628b" },
+        "pick": { "top": "#1d5175", "bottom": "#123d5c", "border": "#3cc4ff" },
+        "sheen": "rgba(160,220,255,.25)",
+        "textGlow": "rgba(0,0,0,.35)",
+        "glow": "#3cc4ff"
+      }
+    }
+  },
+
+  "pointers": {
+    "touch": { "size": { "body": 15, "hit": 44, "hitSmall": 36, "icon": 24, "iconSmall": 20 } }
+  },
+
+  "palettes": {
+    "tracks": ["#1e9ee0", "#5fb82a", "#ff7a2a", "#a066d8", "#e0383e", "#18b6b0", "#eaa52a", "#ef5fa7",
+               "#4fc0f5", "#8ad44a", "#ffa35e", "#c08af0", "#f2777b", "#4fd6cf", "#f3c45c", "#7f9fb5"],
+    "layers": ["#1e9ee0", "#5fb82a", "#ff7a2a", "#a066d8"],
+    "notes": { "slate": "#7f9fb5", "blue": "#1e9ee0", "green": "#5fb82a", "amber": "#eaa52a", "red": "#e0383e", "violet": "#a066d8" }
+  },
+
+  "icons": { "dir": "icons", "ext": "svg", "tint": false, "grid": 24, "stroke": 1 },
+
+  "components": {
+    "button": {
+      "bg": "$pattern.gloss", "border": "1px solid $color.gloss.border", "color": "$color.text.primary",
+      "shadow": "$shadow.raised, inset 0 1px 0 $color.sheen", "textShadow": "0 1px 0 $color.textGlow",
+      "hover": { "bg": "$pattern.glossHover", "borderColor": "$color.glow", "shadow": "$shadow.glow" },
+      "pressed": { "bg": "$pattern.glossDown", "shadow": "inset 0 2px 4px rgba(0,40,80,.25)" },
+      "focus": { "outline": "none", "shadow": "$shadow.glow" },
+      "on": { "bg": "$pattern.pick", "borderColor": "$color.pick.border", "color": "$color.text.primary" },
+      "disabled": { "opacity": 0.5 },
+      "variants": {
+        "primary": {
+          "bg": "$pattern.aqua", "borderColor": "$color.aqua.border", "color": "#ffffff", "textShadow": "0 1px 1px rgba(0,50,90,.45)",
+          "hover": { "bg": "$pattern.aquaHover", "borderColor": "$color.aqua.border", "shadow": "$shadow.glow" },
+          "pressed": { "bg": "$pattern.aquaDown", "shadow": "inset 0 2px 4px rgba(0,40,80,.35)" }
+        },
+        "ghost": {
+          "bg": "transparent", "borderColor": "transparent", "shadow": "none", "textShadow": "none",
+          "hover": { "bg": "$color.glass.pane", "borderColor": "$color.glass.edge", "shadow": "none" },
+          "pressed": { "bg": "$pattern.pick" }
+        },
+        "danger": { "color": "$color.error" }
+      }
+    },
+    "chip": {
+      "bg": "$pattern.gloss", "border": "1px solid $color.gloss.border", "color": "$color.text.secondary",
+      "hover": { "color": "$color.text.primary", "borderColor": "$color.glow" },
+      "on": { "bg": "$pattern.aqua", "color": "#ffffff", "borderColor": "$color.aqua.border" }
+    },
+    "seg": {
+      "bg": "$color.glass.pane", "border": "1px solid $color.gloss.border", "radius": "$radius.pill", "padding": 2,
+      "item": { "radius": "$radius.pill", "on": { "bg": "$pattern.aqua", "color": "#ffffff", "shadow": "$shadow.raised" } }
+    },
+    "switch": {
+      "bg": "linear-gradient(180deg, $color.line.main, $color.line.soft)", "shadow": "inset 0 1px 3px rgba(0,40,80,.3)",
+      "on": { "bg": "$pattern.lime" },
+      "thumb": { "bg": "$pattern.orb", "border": "1px solid $color.gloss.border", "shadow": "0 1px 2px rgba(0,40,80,.35)" }
+    },
+    "mini": {
+      "bg": "$pattern.gloss", "border": "1px solid $color.gloss.border", "radius": 5,
+      "variants": {
+        "solo": { "on": { "bg": "$pattern.lime", "color": "#ffffff", "borderColor": "$color.lime.border" } },
+        "mute": { "on": { "bg": "linear-gradient(180deg, #ffe9a0, #f2b81f)", "color": "#3a2a00", "borderColor": "#c99210" } },
+        "arm": { "on": { "bg": "linear-gradient(180deg, #ffb0b0 0%, #ef4a50 49%, #d42a30 50%, #f2676c 100%)", "color": "#ffffff", "borderColor": "#a51e23" } }
+      }
+    },
+    "help": { "bg": "$pattern.aqua", "border": "1px solid $color.aqua.border", "color": "#ffffff",
+      "on": { "bg": "$pattern.lime", "borderColor": "$color.lime.border" } },
+
+    "field": {
+      "border": "1px solid $color.line.main", "radius": 5, "shadow": "inset 0 1px 2px rgba(20,80,130,.15)",
+      "hover": { "borderColor": "$color.glow" },
+      "focus": { "borderColor": "$color.glow", "shadow": "0 0 0 3px $color.glow/30, inset 0 1px 2px rgba(20,80,130,.15)" },
+      "variants": { "search": { "radius": "$radius.pill", "bg": "$color.glass.pane" } }
+    },
+    "stepper": { "border": "1px solid $color.line.main", "radius": 5, "step": { "bg": "$pattern.gloss" } },
+    "slider": {
+      "track": { "height": 5, "radius": "$radius.pill", "bg": "linear-gradient(180deg, $color.line.main, $color.line.soft)", "shadow": "inset 0 1px 2px rgba(0,40,80,.25)" },
+      "fill": { "radius": "$radius.pill", "bg": "$pattern.aqua" },
+      "thumb": { "width": 18, "height": 18, "radius": "$radius.pill", "bg": "$pattern.orb", "border": "1px solid $color.gloss.border",
+        "shadow": "0 1px 3px rgba(0,40,80,.35)", "hover": { "shadow": "$shadow.glow" } }
+    },
+    "colorwell": { "radius": 6, "border": "1px solid $color.gloss.border", "shadow": "inset 0 1px 0 $color.sheen", "selected": { "outline": "2px solid $color.glow", "outlineOffset": 2 } },
+    "key": { "bg": "$pattern.gloss", "border": "1px solid $color.gloss.border", "waiting": { "bg": "$pattern.lime", "color": "#ffffff", "borderColor": "$color.lime.border" } },
+
+    "card": {
+      "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "shadow": "$shadow.card", "blur": 12,
+      "head": { "borderBottom": "1px solid $color.line.soft" }
+    },
+    "section": { "bg": "$color.glass.pane", "radius": "$radius.control" },
+    "fold": {
+      "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "shadow": "$shadow.card", "blur": 12,
+      "head": { "hover": { "bg": "$pattern.pick" } },
+      "chevron": { "color": "$color.accent" }
+    },
+    "heading": { "color": "$color.text.primary", "case": "none", "tracking": 0, "size": "$size.large", "weight": 600, "icon": { "color": "$color.accent" } },
+    "row": {
+      "bg": "$color.glass.pane", "border": "1px solid $color.glass.edge", "radius": 8,
+      "hover": { "bg": "$pattern.pick", "borderColor": "$color.pick.border" },
+      "selected": { "bg": "$pattern.pick", "borderColor": "$color.pick.border", "shadow": "inset 0 1px 0 $color.sheen, 0 0 0 1px $color.pick.border" },
+      "bad": { "borderColor": "$color.error/50", "bg": "$color.error/8" }
+    },
+    "tile": { "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "radius": 10, "shadow": "$shadow.raised",
+      "selected": { "outline": "2px solid $color.glow", "outlineOffset": 2 },
+      "caption": { "bg": "$color.glass.pane", "color": "$color.text.secondary" } },
+    "strip": { "bg": "$color.glass.pane", "item": { "border": "1px solid $color.glass.edge", "selected": { "outline": "2px solid $color.glow" } } },
+
+    "rail": {
+      "bg": "$pattern.glassDense", "borderRight": "1px solid $color.glass.edge", "blur": 16, "shadow": "inset -1px 0 0 $color.glass.rim",
+      "item": {
+        "radius": 8, "color": "$color.text.primary",
+        "hover": { "bg": "$pattern.pick", "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.pick", "color": "$color.text.primary", "shadow": "inset 0 0 0 1px $color.pick.border, inset 0 1px 0 $color.sheen" }
+      },
+      "sep": { "bg": "$color.line.soft" }
+    },
+    "topbar": {
+      "bg": "$pattern.title", "borderBottom": "1px solid $color.glass.edge", "blur": 16,
+      "shadow": "0 1px 0 $color.glass.rim",
+      "title": { "color": "$color.text.primary", "weight": 600 }
+    },
+    "tabs": {
+      "borderBottom": "1px solid $color.gloss.border",
+      "tab": { "radius": [7, 7, 0, 0], "color": "$color.text.secondary",
+        "hover": { "bg": "$color.glass.pane", "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.gloss", "color": "$color.text.primary", "borderBottom": "2px solid $color.accent" } }
+    },
+    "bottomtabs": { "bg": "$pattern.glass", "borderTop": "1px solid $color.glass.edge", "tab": { "on": { "color": "$color.accent" } } },
+    "toolbar": {
+      "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "shadow": "$shadow.menu", "radius": 14, "blur": 16,
+      "tool": { "radius": 9, "color": "$color.text.primary",
+        "hover": { "bg": "$pattern.pick", "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.aqua", "color": "#ffffff", "shadow": "$shadow.raised" } }
+    },
+    "sheet": {
+      "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "blur": 18,
+      "head": { "borderBottom": "1px solid $color.line.soft" },
+      "variants": { "side": { "borderLeft": "1px solid $color.glass.edge", "shadow": "-6px 0 24px rgba(20,80,130,.15)" } }
+    },
+    "drawer": { "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "blur": 18 },
+
+    "dialog": {
+      "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "blur": 20, "padding": 4,
+      "head": { "bg": "$pattern.title", "radius": [9, 9, 0, 0], "borderBottom": "1px solid $color.line.soft" },
+      "title": { "weight": 600 }
+    },
+    "menu": {
+      "bg": "$pattern.glass", "border": "1px solid $color.gloss.border", "radius": 8, "blur": 14,
+      "item": { "radius": 5, "hover": { "bg": "$pattern.pick", "color": "$color.text.primary", "shadow": "inset 0 0 0 1px $color.pick.border" } }
+    },
+    "toast": { "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "radius": 12, "blur": 16 },
+    "tooltip": { "bg": "linear-gradient(180deg, #ffffff, #e4f2fa)", "color": "#123047", "border": "1px solid #6fa8c8", "radius": 4, "shadow": "0 2px 6px rgba(20,80,130,.25)" },
+
+    "pill": { "bg": "$pattern.gloss", "border": "1px solid $color.gloss.border", "radius": "$radius.pill" },
+    "callout": { "radius": 10 },
+    "badge": { "bg": "linear-gradient(180deg, #ff9a9a 0%, #e0383e 55%, #c8161d 100%)", "color": "#ffffff",
+      "variants": { "muted": { "bg": "$pattern.gloss", "color": "$color.text.primary" } } },
+    "dot": { "shadow": "inset 0 1px 1px rgba(255,255,255,.8), 0 0 0 1px rgba(0,40,80,.25)" },
+    "progress": {
+      "track": { "height": 14, "radius": 3, "bg": "linear-gradient(180deg, $color.line.main, $color.line.soft 60%, $color.bg.raised)", "shadow": "inset 0 1px 2px rgba(0,40,80,.25)", "border": "1px solid $color.gloss.border" },
+      "fill": { "radius": 2, "bg": "$pattern.lime" }
+    },
+    "boot": {
+      "bg": "$pattern.bubbles, $pattern.sky",
+      "title": { "color": "$color.text.primary", "weight": 300, "size": "$size.hero", "textShadow": "0 1px 0 $color.textGlow, 0 0 18px $color.glow/40" },
+      "track": { "height": 14, "radius": 3, "bg": "linear-gradient(180deg, $color.line.main, $color.bg.raised)", "border": "1px solid $color.gloss.border" },
+      "fill": { "radius": 2, "bg": "$pattern.lime" },
+      "status": { "color": "$color.text.secondary" },
+      "log": { "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "radius": 10, "blur": 12 }
+    },
+    "log": { "border": "1px solid $color.line.soft", "radius": 8 },
+    "empty": { "border": "1.5px dashed $color.gloss.border", "bg": "$color.glass.pane", "radius": 12 },
+    "kbd": { "bg": "$pattern.gloss", "border": "1px solid $color.gloss.border", "borderBottom": "2px solid $color.gloss.border", "radius": 4 },
+
+    "transport": {
+      "bg": "$pattern.glass", "border": "1px solid $color.glass.edge", "radius": "$radius.pill", "blur": 12, "padding": 4,
+      "button": { "radius": "$radius.pill", "bg": "$pattern.gloss", "color": "$color.text.primary", "shadow": "inset 0 0 0 1px $color.gloss.border",
+        "hover": { "bg": "$pattern.glossHover", "shadow": "$shadow.glow" },
+        "on": { "bg": "$pattern.aqua", "color": "#ffffff", "shadow": "inset 0 0 0 1px $color.aqua.border" } },
+      "rec": { "color": "$color.error", "on": { "bg": "linear-gradient(180deg, #ffb0b0 0%, #ef4a50 49%, #d42a30 50%, #f2676c 100%)", "color": "#ffffff" } },
+      "display": { "bg": "$pattern.lcd", "color": "$color.lcd.ink", "radius": 8, "textShadow": "0 0 6px $color.glow/70" }
+    },
+    "meter": { "bg": "linear-gradient(180deg, #0d3a5a, #1d6a96)", "border": "1px solid $color.gloss.border", "radius": "$radius.pill", "fill": { "bg": "$pattern.meter" } },
+    "keys": { "radius": 8, "white": { "bg": "linear-gradient(180deg, #ffffff 70%, #e3f2fb)", "border": "1px solid $color.line.main", "pressed": { "bg": "$pattern.aqua" } },
+      "black": { "bg": "linear-gradient(180deg, #3a5a72, #0d2233)", "pressed": { "bg": "$pattern.aquaDown" } } },
+    "pad": { "bg": "$pattern.gloss", "border": "1px solid $color.gloss.border", "radius": 10,
+      "on": { "bg": "$pattern.aqua", "color": "#ffffff" }, "lit": { "shadow": "0 0 14px $color.select/70", "borderColor": "$color.lime.border" } }
+  },
+
+  "canvas": {
+    "common": {
+      "grid.minor": "$color.accent/10",
+      "grid.major": "$color.accent/22",
+      "marquee": { "color": "$color.accent", "dash": [4, 3] },
+      "marquee.shadow": { "color": "#ffffff", "dash": [4, 3] },
+      "handle": { "fill": "#ffffff", "color": "$color.accent", "size": 8 },
+      "handle.hot": { "fill": "$color.select", "color": "#ffffff", "size": 9 },
+      "label": { "fill": "$color.glass.top", "color": "$color.text.primary", "font": "600 11px $font.ui" },
+      "selected": { "color": "$color.select", "width": 2.5 }
+    },
+    "map": {
+      "room.fill": "$color.glass.top",
+      "room.line": "$color.text.secondary",
+      "marker": { "fill": "$color.glass.top", "color": "$color.text.primary", "width": 2, "radius": 9, "font": "600 11px $font.ui" }
+    },
+    "graph": {
+      "dot": { "fill": "$color.accent/25", "size": 24 },
+      "node": { "fill": "$color.glass.top", "color": "$color.gloss.border", "radius": 10 },
+      "node.title": { "color": "#ffffff", "font": "600 12px $font.ui" },
+      "node.field": { "fill": "$color.bg.input", "color": "$color.line.main", "radius": 4 },
+      "wire.exec": { "color": "$color.text.secondary", "width": 3 },
+      "pin.exec": { "fill": "$color.text.secondary", "size": 7 }
+    }
+  }
+}
