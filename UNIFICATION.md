@@ -1,6 +1,6 @@
 # Unifying the seven tools under one skin
 
-Status: **proposal**. The kit, the format, the default skin and the testbench exist in `uikit/`. No tool wears the skin yet.
+Status: **proposal**. The kit, the format, the base skin (`claude`) and the testbench exist in `uikit/`. No tool wears the skin yet.
 
 ## 1. Where the tools stand today
 
@@ -26,9 +26,9 @@ Some ideas are drawn differently in each tool:
 
 Most tools also use the browser's own `alert` / `prompt` / `confirm` somewhere.
 
-## 2. The unified look: what the default skin proposes
+## 2. The unified look: what the `claude` skin proposes
 
-`skins/default/skin.json` is the unified proposal. Each line below is one token or key in it, so changing a decision means changing that value and watching the testbench.
+`skins/claude/skin.json` is the unified proposal. Each line below is one token or key in it, so changing a decision means changing that value and watching the testbench.
 
 1. **One accent: blue.** It means "active, on, primary".
    - It is the studio's `#5b8fd6` in dark mode and `#2f6fdb` in light.
@@ -63,13 +63,13 @@ skins/<name>/  --build.js-->  <name>.skin.js (one file, ~250 KB)  --runtime.js--
 A tool vendors three files:
 - `runtime.js` (about 120 lines, no imports);
 - `kit.css` (structure only);
-- a baked bundle (`node uikit/build.js default --js tool/vendor/default.skin.js`).
+- a baked bundle (`node uikit/build.js claude --js tool/vendor/claude.skin.js`).
 
 It needs no build step and has no dependency on the repo.
 
 ```js
 import { applySkin } from './vendor/runtime.js'
-import bundle from './vendor/default.skin.js'
+import bundle from './vendor/claude.skin.js'
 
 const skin = applySkin(bundle, { mode: 'auto', pointer: 'auto' })   // follows the system
 // canvas code asks the skin, never a hex literal:
@@ -132,10 +132,10 @@ Every step ships on its own and leaves the tool working. The steps are in order 
 
 ## 5. Keeping it unified
 
-- **One skin for all tools.** A tool never adds a colour of its own. When it needs one, the colour becomes a token or a canvas key in the default skin, and the testbench shows it.
+- **One skin for all tools.** A tool never adds a colour of its own. When it needs one, the colour becomes a token or a canvas key in the `claude` skin, and the testbench shows it.
 - **One catalog of icons.** A new icon gets an id in `catalog/icons.json` first.
-- **Components come from the registry.** A tool that needs a new kind of control adds it to `lib/registry.js`, `lib/kit.js`, the default skin and the testbench, in that order.
-- **`node uikit/test/skin.test.js`** fails when a shipped skin has problems. It also fails when the testbench draws a canvas key the default skin lacks.
+- **Components come from the registry.** A tool that needs a new kind of control adds it to `lib/registry.js`, `lib/kit.js`, the `claude` skin and the testbench, in that order.
+- **`node uikit/test/skin.test.js`** fails when a shipped skin has problems. It also fails when the testbench draws a canvas key the `claude` skin lacks.
 - **`node uikit/build.js`** refuses to bake a skin with problems, so a broken skin cannot ship.
 
 ## 6. Known limits of version 1

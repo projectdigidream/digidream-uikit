@@ -84,6 +84,13 @@ await test('compile: modes and pointers override tokens; canvas follows', async 
   assert.deepEqual(c.warnings, []);
 });
 
+await test('fonts: @font-face, and ligatures: false reaches the root rule', () => {
+  const c = compile({ fonts: [{ family: 'Px', file: 'f.ttf', weight: '400 700', ligatures: false }] });
+  assert.match(c.fontCss, /font-family: "Px"; src: url\("f.ttf"\); font-weight: 400 700/);
+  assert.match(c.css["dark/mouse"], /\{ font-variant-ligatures: none; /);
+  assert.doesNotMatch(compile({}).css['dark/mouse'], /ligatures/);
+});
+
 await test('validation names what is wrong', () => {
   const c = compile({ colour: {}, components: { buton: {}, button: { bgg: 1, variants: { huge: {} }, hover: { nope: 1 } } }, canvas: { map: { x: { colr: 1 } } } });
   const all = c.warnings.join('\n');
@@ -140,10 +147,10 @@ await test('every shipped skin compiles clean', async () => {
   }
 });
 
-await test('the default skin defines every canvas key the testbench draws', async () => {
+await test('the claude skin (the base) defines every canvas key the testbench draws', async () => {
   const scenes = await readFile(join(ROOT, 'testbench/scenes.js'), 'utf8') + await readFile(join(ROOT, 'testbench/screens.js'), 'utf8');
   const used = new Set([...scenes.matchAll(/C\(v, '(\w+)', '([\w.]+)'\)/g)].map((m) => `${m[1]}.${m[2]}`));
-  const def = JSON.parse(await readFile(join(ROOT, 'skins/default/skin.json'), 'utf8'));
+  const def = JSON.parse(await readFile(join(ROOT, 'skins/claude/skin.json'), 'utf8'));
   const missing = [...used].filter((k) => { const [g, ...rest] = k.split('.'); return !(rest.join('.') in (def.canvas[g] ?? {})); });
   assert.deepEqual(missing, []);
 });

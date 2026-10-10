@@ -1,10 +1,10 @@
 {
   "format": "dnp-skin",
   "version": 1,
-  "id": "nineties",
-  "name": "Nineties",
+  "id": "90s",
+  "name": "90s",
   "about": "Desktop software, 1995-1999: grey bevels, navy title bars, Tahoma, dithered toggles, the 16 VGA colours, a white map like the old DOOM editors and green-on-black waveforms. Two modes: classic, and night (a high-contrast scheme).",
-  "extends": "default",
+  "extends": "claude",
 
   "tokens": {
     "color": {

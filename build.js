@@ -3,7 +3,7 @@
 // pointer, canvas specs, palettes, tokens, and every icon, image and font
 // inlined. A tool loads it with lib/runtime.js applySkin().
 //
-//   node uikit/build.js <skin> [out.json]      e.g. node uikit/build.js default
+//   node uikit/build.js <skin> [out.json]      e.g. node uikit/build.js claude
 //   node uikit/build.js <skin> --js out.js      as an ES module (export default)
 //
 // Fails (exit 1) when the skin has problems, so a broken skin never ships.

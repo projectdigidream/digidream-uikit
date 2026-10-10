@@ -3,14 +3,14 @@
 // reloads by itself when anything under skins/ changes (served mode).
 
 import { loadChain, compile, iconCandidates } from '../lib/skin.js';
-import { installCss, skinView, iconTinted } from '../lib/runtime.js';
+import { installCss, skinView, iconTinted, whenFontsReady } from '../lib/runtime.js';
 import { bake } from '../lib/bake.js';
 import * as kit from '../lib/kit.js';
 import { SECTIONS } from './sections.js';
 
 const $ = (id) => document.getElementById(id);
 const state = {
-  skins: [], skin: 'default', mode: 'dark', pointer: 'mouse',
+  skins: [], skin: 'claude', mode: 'dark', pointer: 'mouse',
   folder: null, // { name, files: Map(relPath -> File), urls: Map(relPath -> blobUrl) }
   compiled: null, chain: [], catalog: null, stamp: null,
 };
@@ -95,6 +95,7 @@ async function load () {
   if (state.mode !== 'both' && !compiled.modes.includes(state.mode)) state.mode = compiled.modes[0];
   buildBar();
   render();
+  whenFontsReady(compiled, document, () => { if (state.compiled === compiled) render(); });
 }
 
 const glyphs = new Map();
@@ -185,7 +186,7 @@ async function poll () {
 async function start () {
   state.catalog = await (await fetch(ROOT + 'catalog/icons.json', { cache: 'no-store' })).json();
   for (const g of state.catalog.groups) for (const [n, , glyph] of g.icons) glyphs.set(`${g.id}.${n}`, glyph);
-  try { state.skins = (await (await fetch(ROOT + 'skins/index.json', { cache: 'no-store' })).json()).skins; } catch { state.skins = ['default']; }
+  try { state.skins = (await (await fetch(ROOT + 'skins/index.json', { cache: 'no-store' })).json()).skins; } catch { state.skins = ['claude']; }
   if (!state.skins.includes(state.skin)) state.skin = state.skins[0];
   const q = new URLSearchParams(location.search);
   if (q.get('skin')) state.skin = q.get('skin');

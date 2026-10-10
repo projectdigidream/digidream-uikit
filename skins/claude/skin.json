@@ -1,8 +1,8 @@
 {
   "format": "dnp-skin",
   "version": 1,
-  "id": "default",
-  "name": "Digidream default",
+  "id": "claude",
+  "name": "Claude",
   "about": "The unified proposal: the studio's navy look, one accent, one selection colour, one playhead, sans UI text with monospace numbers. Every other skin extends this one.",
 
   "fonts": [],

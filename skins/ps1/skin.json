@@ -1,0 +1,390 @@
+{
+  "format": "dnp-skin",
+  "version": 1,
+  "id": "ps1",
+  "name": "PS1",
+  "about": "Late-90s 3D console menus: blue gradient windows with a bright rim, white pixel text with hard shadows, a gold cursor, dithered gradients, faint scanlines, memory-card blocks for progress. Modes: dark (the TV at night) and console (grey plastic).",
+  "extends": "claude",
+
+  "fonts": [
+    { "family": "Pixelify Sans", "file": "fonts/PixelifySans.ttf", "weight": "400 700", "ligatures": false }
+  ],
+
+  "tokens": {
+    "color": {
+      "bg": {
+        "app": "#05060f", "rail": "#0a0f2e", "panel": "#1a2a8a", "raised": "#24369c", "hover": "#2e44b8",
+        "input": "#060a26", "overlay": "#1a2a8a", "code": "#04061a", "sunken": "#020310"
+      },
+      "line": { "soft": "#2a3a9a", "main": "#5a68b8", "strong": "#c8cef0" },
+      "text": { "primary": "#ffffff", "secondary": "#c8d0ff", "dim": "#8a94d0", "inverse": "#05060f" },
+      "accent": "#4fc8ff",
+      "accentHover": "#8adcff",
+      "accentInk": "#05060f",
+      "select": "#ffd84a",
+      "playhead": "#ff4a5a",
+      "ok": "#3ccf6e",
+      "warn": "#ffb020",
+      "error": "#ff4a5a",
+      "info": "#4fc8ff",
+      "guide": "#ff5ad0",
+      "wave": "#4fc8ff",
+      "scrim": "rgba(2,3,16,.6)",
+      "tone": { "when": "#ffd84a", "if": "#4fc8ff", "then": "#3ccf6e" },
+      "node": { "event": "#7a1430", "condition": "#6a5010", "action": "#103a8a", "flow": "#2a2f5a", "data": "#0e5a3a", "camera": "#4a1a7a" },
+      "marker": { "spawn": "#3ccf6e", "light": "#ffd84a", "monster": "#ff4a5a", "prop": "#4fc8ff" },
+      "path": "#b07aff",
+      "pathActive": "#e0b0ff",
+      "checker": { "a": "#101640", "b": "#18205a" },
+      "keys": { "white": "#e8ecff", "black": "#0a0f2e" },
+
+      "win": { "top": "#3a52c8", "bottom": "#0e1660", "rim": "#e8ecff", "rimShadow": "#5a6ab8", "outer": "#000000" },
+      "btn": { "top": "#4a64d8", "bottom": "#1c2a90", "hoverTop": "#5a78f0", "hoverBottom": "#24369c" },
+      "gold": { "top": "#ffe680", "bottom": "#c89a10", "hoverTop": "#fff0a8", "hoverBottom": "#dcae20", "ink": "#1a1000" },
+      "textShadow": "#000000",
+      "btnInk": "#ffffff",
+      "tint": "rgba(0,0,0,.25)",
+      "tintStrong": "rgba(0,0,0,.38)",
+      "danger": "#ff9aa4",
+      "selectBar": { "a": "rgba(255,255,255,.30)", "b": "rgba(255,255,255,.06)" },
+      "scanline": "rgba(0,0,0,.28)",
+      "glow": "#4fc8ff"
+    },
+    "font": {
+      "ui": "\"Pixelify Sans\", \"Trebuchet MS\", Verdana, sans-serif",
+      "mono": "\"Pixelify Sans\", \"Courier New\", monospace"
+    },
+    "size": { "tiny": 11, "small": 12, "body": 14, "large": 16, "title": 18, "hero": 34, "hit": 32, "hitSmall": 26, "icon": 16, "iconSmall": 16 },
+    "weight": { "normal": 400, "strong": 500, "heavy": 700 },
+    "radius": { "small": 2, "control": 4, "card": 6, "dialog": 6, "sheet": 6, "pill": 999 },
+    "rim": {
+      "window": "inset 0 0 0 1px $color.win.outer, inset 0 0 0 3px $color.win.rim, inset 0 0 0 4px $color.win.rimShadow, 0 3px 0 rgba(0,0,0,.45)",
+      "button": "inset 0 0 0 1px $color.win.outer, inset 0 0 0 2px $color.line.strong, inset 0 3px 0 -1px rgba(255,255,255,.25)",
+      "glow": "inset 0 0 0 1px $color.win.outer, inset 0 0 0 2px $color.glow, 0 0 10px $color.glow/60",
+      "pressed": "inset 0 0 0 1px $color.win.outer, inset 0 0 0 2px $color.line.main, inset 0 2px 4px rgba(0,0,0,.5)"
+    },
+    "pattern": {
+      "window": "repeating-conic-gradient(rgba(0,0,0,.10) 0 25%, transparent 0 50%) 0 0 / 2px 2px, linear-gradient(180deg, $color.win.top, $color.win.bottom)",
+      "button": "linear-gradient(180deg, $color.btn.top, $color.btn.bottom)",
+      "buttonHover": "linear-gradient(180deg, $color.btn.hoverTop, $color.btn.hoverBottom)",
+      "buttonDown": "linear-gradient(180deg, $color.btn.bottom, $color.btn.top)",
+      "gold": "linear-gradient(180deg, $color.gold.top, $color.gold.bottom)",
+      "goldHover": "linear-gradient(180deg, $color.gold.hoverTop, $color.gold.hoverBottom)",
+      "goldDown": "linear-gradient(180deg, $color.gold.bottom, $color.gold.top)",
+      "select": "linear-gradient(90deg, $color.selectBar.a, $color.selectBar.b)",
+      "scan": "repeating-linear-gradient(0deg, $color.scanline 0 1px, transparent 1px 3px)",
+      "app": "repeating-linear-gradient(0deg, $color.scanline 0 1px, transparent 1px 3px), radial-gradient(ellipse at 50% 30%, $color.win.bottom 0%, $color.bg.app 75%)",
+      "blocks": "repeating-linear-gradient(90deg, $color.accent 0 14px, transparent 14px 18px)",
+      "meter": "repeating-linear-gradient(90deg, transparent 0 4px, $color.bg.sunken 4px 5px), linear-gradient(90deg, $color.accent 0%, $color.accent 65%, $color.select 85%, $color.error 100%)"
+    },
+    "shadow": {
+      "raised": "0 2px 0 rgba(0,0,0,.45)",
+      "menu": "$rim.window",
+      "sheet": "$rim.window",
+      "toast": "$rim.window"
+    },
+    "motion": { "fast": "80ms steps(2)" }
+  },
+
+  "modes": {
+    "light": null,
+    "dark": {},
+    "console": {
+      "color": {
+        "bg": {
+          "app": "#b9bac0", "rail": "#a9aab2", "panel": "#c9cad0", "raised": "#d6d7dc", "hover": "#e2e3e8",
+          "input": "#f4f4f7", "overlay": "#c9cad0", "code": "#eeeef2", "sunken": "#dcdde2"
+        },
+        "line": { "soft": "#b0b1b8", "main": "#8a8b94", "strong": "#4a4b55" },
+        "text": { "primary": "#1d1e26", "secondary": "#3a3b46", "dim": "#6a6b76", "inverse": "#ffffff" },
+        "accent": "#3b6fe0",
+        "accentHover": "#5a88f0",
+        "accentInk": "#ffffff",
+        "select": "#d6336f",
+        "playhead": "#d93a3a",
+        "ok": "#1f9a5a",
+        "warn": "#b06e00",
+        "error": "#d93a3a",
+        "info": "#3b6fe0",
+        "wave": "#2a7ad0",
+        "tone": { "when": "#a06a00", "if": "#3b6fe0", "then": "#1f9a5a" },
+        "node": { "event": "#e8c4cc", "condition": "#ece0b8", "action": "#c4d4f4", "flow": "#d8d9e0", "data": "#c0e4d0", "camera": "#dccaf0" },
+        "marker": { "spawn": "#1f9a5a", "light": "#b06e00", "monster": "#d93a3a", "prop": "#3b6fe0" },
+        "path": "#7a4ad0",
+        "pathActive": "#a070f0",
+        "checker": { "a": "#cfd0d6", "b": "#c2c3ca" },
+        "keys": { "white": "#ffffff", "black": "#2a2b33" },
+        "win": { "top": "#e8e9ee", "bottom": "#b4b5bd", "rim": "#ffffff", "rimShadow": "#8a8b94", "outer": "#4a4b55" },
+        "btn": { "top": "#f2f2f5", "bottom": "#c2c3ca", "hoverTop": "#ffffff", "hoverBottom": "#d2d3da" },
+        "textShadow": "rgba(255,255,255,.7)",
+        "btnInk": "#1d1e26",
+        "tint": "rgba(255,255,255,.45)",
+        "tintStrong": "rgba(255,255,255,.65)",
+        "danger": "#c02040",
+        "selectBar": { "a": "rgba(59,111,224,.32)", "b": "rgba(59,111,224,.06)" },
+        "scanline": "rgba(0,0,0,.035)",
+        "glow": "#3b6fe0"
+      }
+    }
+  },
+
+  "pointers": {
+    "touch": { "size": { "body": 16, "small": 13, "hit": 44, "hitSmall": 36, "icon": 20, "iconSmall": 16 } }
+  },
+
+  "palettes": {
+    "tracks": ["#4fc8ff", "#ffd84a", "#3ccf6e", "#ff7ad0", "#ff4a5a", "#b07aff", "#ff9a3a", "#e8ecff",
+               "#2aa8e0", "#d8b030", "#30a858", "#d860b0", "#d83a4a", "#8a5ae0", "#d87a2a", "#a8b0e0"],
+    "layers": ["#4fc8ff", "#ffd84a", "#3ccf6e", "#ff7ad0"],
+    "notes": { "slate": "#5a6ab8", "blue": "#2a50d8", "green": "#1a8a5a", "amber": "#b08a10", "red": "#b02a4a", "violet": "#7a3ad0" }
+  },
+
+  "icons": {
+    "dir": "icons", "ext": "svg", "tint": true, "grid": 16, "stroke": 2,
+    "keepColor": ["status.*", "maptool.select", "action.save", "action.open", "section.music", "section.home", "transport.record"]
+  },
+
+  "components": {
+    "button": {
+      "border": "none", "bg": "$pattern.button", "color": "$color.btnInk", "shadow": "$rim.button",
+      "textShadow": "2px 2px 0 $color.textShadow", "weight": "$weight.strong",
+      "hover": { "bg": "$pattern.buttonHover", "shadow": "$rim.glow", "borderColor": "transparent" },
+      "pressed": { "bg": "$pattern.buttonDown", "shadow": "$rim.pressed" },
+      "focus": { "outline": "none", "shadow": "$rim.glow" },
+      "on": { "bg": "$pattern.buttonDown", "shadow": "inset 0 0 0 1px $color.win.outer, inset 0 0 0 2px $color.select", "color": "$color.select" },
+      "disabled": { "opacity": 0.45 },
+      "variants": {
+        "primary": {
+          "bg": "$pattern.gold", "color": "$color.gold.ink", "textShadow": "1px 1px 0 rgba(255,255,255,.45)",
+          "hover": { "bg": "$pattern.goldHover", "shadow": "$rim.glow" },
+          "pressed": { "bg": "$pattern.goldDown", "shadow": "$rim.pressed" }
+        },
+        "ghost": {
+          "bg": "transparent", "shadow": "none", "color": "$color.text.primary", "textShadow": "2px 2px 0 $color.textShadow",
+          "hover": { "bg": "$pattern.select", "shadow": "none" },
+          "pressed": { "bg": "$pattern.select", "shadow": "none" }
+        },
+        "danger": { "color": "$color.danger" }
+      }
+    },
+    "chip": {
+      "bg": "$color.tint", "border": "1px solid $color.line.main", "color": "$color.text.secondary",
+      "textShadow": "1px 1px 0 $color.textShadow", "weight": "$weight.strong",
+      "hover": { "color": "$color.text.primary", "borderColor": "$color.line.strong" },
+      "on": { "bg": "$pattern.select", "color": "$color.text.primary", "borderColor": "$color.select" }
+    },
+    "seg": {
+      "bg": "$color.tint", "border": "1px solid $color.line.main",
+      "item": {
+        "color": "$color.text.dim", "textShadow": "1px 1px 0 $color.textShadow",
+        "hover": { "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.select", "color": "$color.text.primary", "shadow": "inset 0 0 0 1px $color.line.strong" }
+      }
+    },
+    "switch": {
+      "bg": "$color.bg.input", "shadow": "inset 0 0 0 1px $color.line.main",
+      "on": { "bg": "$color.accent", "shadow": "inset 0 0 0 1px $color.win.outer, 0 0 8px $color.glow/60" },
+      "thumb": { "bg": "#ffffff", "shadow": "0 2px 0 rgba(0,0,0,.45)" }
+    },
+    "mini": {
+      "bg": "$pattern.button", "color": "$color.btnInk", "border": "none", "shadow": "$rim.button", "textShadow": "1px 1px 0 $color.textShadow",
+      "hover": { "color": "$color.btnInk", "shadow": "$rim.glow" },
+      "variants": {
+        "solo": { "on": { "bg": "$color.ok", "color": "#05060f", "textShadow": "none" } },
+        "mute": { "on": { "bg": "$color.select", "color": "#05060f", "textShadow": "none" } },
+        "arm": { "on": { "bg": "$color.error", "color": "#ffffff" } },
+        "close": { "bg": "transparent", "shadow": "none", "color": "$color.text.primary", "hover": { "color": "$color.error", "shadow": "none" } }
+      }
+    },
+    "help": {
+      "bg": "$pattern.button", "color": "$color.btnInk", "border": "none", "shadow": "$rim.button",
+      "on": { "bg": "$pattern.gold", "color": "$color.gold.ink", "shadow": "$rim.button" }
+    },
+
+    "field": {
+      "bg": "$color.bg.input", "border": "1px solid $color.line.main", "radius": 3, "color": "$color.text.primary",
+      "shadow": "inset 0 2px 0 rgba(0,0,0,.35)",
+      "hover": { "borderColor": "$color.line.strong" },
+      "focus": { "borderColor": "$color.glow", "shadow": "0 0 8px $color.glow/60" },
+      "error": { "borderColor": "$color.error", "shadow": "0 0 8px $color.error/50" }
+    },
+    "stepper": {
+      "bg": "$color.bg.input", "border": "1px solid $color.line.main", "radius": 3,
+      "focus": { "borderColor": "$color.glow" },
+      "step": { "color": "$color.select", "hover": { "bg": "$pattern.select", "color": "$color.select" } }
+    },
+    "slider": {
+      "label": { "textShadow": "1px 1px 0 $color.textShadow" },
+      "track": { "height": 6, "radius": 1, "bg": "$color.bg.input", "shadow": "inset 0 0 0 1px $color.line.main" },
+      "fill": { "radius": 1, "bg": "linear-gradient(90deg, $color.accent/35, $color.accent)" },
+      "thumb": { "width": 12, "height": 20, "radius": 2, "bg": "linear-gradient(180deg, #ffffff, #9aa8e8)", "border": "1px solid #000000",
+        "hover": { "shadow": "0 0 10px $color.glow/70" } },
+      "value": { "color": "$color.select", "textShadow": "1px 1px 0 $color.textShadow" }
+    },
+    "colorwell": { "border": "2px solid #000000", "radius": 2, "selected": { "outline": "2px solid $color.select", "outlineOffset": 1 } },
+    "key": {
+      "bg": "$pattern.button", "color": "$color.btnInk", "border": "none", "shadow": "$rim.button", "textShadow": "1px 1px 0 $color.textShadow",
+      "waiting": { "bg": "$pattern.gold", "color": "$color.gold.ink", "textShadow": "none" }
+    },
+
+    "card": {
+      "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "padding": 4,
+      "head": { "borderBottom": "1px solid $color.line.soft" },
+      "title": { "textShadow": "2px 2px 0 $color.textShadow" },
+      "sub": { "color": "$color.text.dim" },
+      "variants": { "flat": { "bg": "$color.tint", "shadow": "inset 0 0 0 1px $color.line.soft" } }
+    },
+    "section": {
+      "bg": "$color.tint",
+      "head": { "textShadow": "1px 1px 0 $color.textShadow", "case": "none", "tracking": 0.02, "size": "$size.body" },
+      "variants": {
+        "when": { "bg": "$color.tint" }, "if": { "bg": "$color.tint" }, "then": { "bg": "$color.tint" }
+      }
+    },
+    "fold": {
+      "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "padding": 3,
+      "head": { "hover": { "bg": "$pattern.select" } },
+      "chevron": { "color": "$color.select" },
+      "title": { "textShadow": "2px 2px 0 $color.textShadow" }
+    },
+    "heading": {
+      "color": "$color.select", "case": "none", "tracking": 0.02, "size": "$size.large", "textShadow": "2px 2px 0 $color.textShadow",
+      "icon": { "color": "$color.select" }
+    },
+    "row": {
+      "bg": "$color.tint", "border": "1px solid transparent", "radius": 4,
+      "hover": { "bg": "$pattern.select" },
+      "selected": { "bg": "$pattern.select", "borderColor": "$color.line.strong", "shadow": "inset 3px 0 0 $color.select" },
+      "bad": { "borderColor": "$color.error/70", "bg": "$color.error/12" },
+      "name": { "textShadow": "1px 1px 0 $color.textShadow" },
+      "end": { "color": "$color.select" }
+    },
+    "tile": {
+      "bg": "$color.bg.sunken", "border": "1px solid $color.line.main", "radius": 3,
+      "selected": { "outline": "2px solid $color.select", "outlineOffset": 1 },
+      "caption": { "bg": "rgba(0,0,0,.6)", "color": "#ffffff" }
+    },
+    "strip": { "bg": "$color.tintStrong", "item": { "border": "1px solid $color.line.main", "selected": { "outline": "2px solid $color.select" } } },
+
+    "rail": {
+      "bg": "$pattern.window", "borderRight": "none", "shadow": "$rim.window", "padding": 8,
+      "item": {
+        "color": "$color.text.secondary", "textShadow": "1px 1px 0 $color.textShadow",
+        "hover": { "bg": "$pattern.select", "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.select", "color": "$color.text.primary", "shadow": "inset 3px 0 0 $color.select" }
+      },
+      "sep": { "bg": "$color.line.main" }
+    },
+    "topbar": {
+      "bg": "$pattern.window", "borderBottom": "none", "shadow": "$rim.window", "padding": [0, 12],
+      "title": { "color": "$color.text.primary", "textShadow": "2px 2px 0 $color.textShadow" },
+      "sub": { "color": "$color.text.secondary" }
+    },
+    "tabs": {
+      "borderBottom": "1px solid $color.line.soft",
+      "tab": {
+        "color": "$color.text.dim", "textShadow": "1px 1px 0 $color.textShadow",
+        "hover": { "color": "$color.text.primary" },
+        "on": { "color": "$color.select", "borderBottom": "2px solid $color.select" }
+      }
+    },
+    "bottomtabs": {
+      "bg": "$pattern.window", "borderTop": "none", "shadow": "$rim.window",
+      "tab": { "color": "$color.text.dim", "on": { "color": "$color.select" } }
+    },
+    "toolbar": {
+      "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "radius": 6, "blur": 0, "padding": 6,
+      "tool": {
+        "color": "$color.text.secondary", "textShadow": "1px 1px 0 $color.textShadow",
+        "hover": { "bg": "$pattern.select", "color": "$color.text.primary" },
+        "on": { "bg": "$pattern.select", "color": "$color.select", "shadow": "inset 0 0 0 1px $color.select" }
+      }
+    },
+    "sheet": {
+      "bg": "$pattern.window", "border": "none", "radius": 6, "shadow": "$rim.window", "padding": 3,
+      "head": { "borderBottom": "1px solid $color.line.soft" },
+      "title": { "textShadow": "2px 2px 0 $color.textShadow" },
+      "grip": { "bg": "$color.line.strong" },
+      "variants": { "side": { "radius": 6, "shadow": "$rim.window", "borderLeft": "none" } }
+    },
+    "drawer": { "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "padding": 3 },
+
+    "dialog": {
+      "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "padding": 4,
+      "title": { "color": "$color.select", "textShadow": "2px 2px 0 $color.textShadow" },
+      "body": { "color": "$color.text.primary" }
+    },
+    "menu": {
+      "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "padding": 6,
+      "item": { "textShadow": "1px 1px 0 $color.textShadow", "hover": { "bg": "$pattern.select", "color": "$color.text.primary" } },
+      "shortcut": { "color": "$color.text.dim" },
+      "group": { "color": "$color.select" }
+    },
+    "toast": { "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "padding": [10, 14],
+      "variants": { "ok": { "borderLeft": "none" }, "warn": { "borderLeft": "none" }, "error": { "borderLeft": "none" } } },
+    "tooltip": { "bg": "#0a0f2e", "color": "#ffffff", "border": "1px solid $color.line.strong", "radius": 3, "shadow": "0 2px 0 rgba(0,0,0,.5)" },
+
+    "pill": { "bg": "$color.tintStrong", "border": "1px solid $color.line.main", "textShadow": "1px 1px 0 $color.textShadow" },
+    "callout": { "bg": "$color.tint", "border": "1px solid $color.line.main" },
+    "badge": { "bg": "$color.error", "color": "#ffffff", "variants": { "error": { "bg": "$color.error" }, "muted": { "bg": "$color.line.main" } } },
+    "dot": { "variants": { "ok": { "shadow": "0 0 6px $color.ok" }, "warn": { "shadow": "0 0 6px $color.warn" }, "error": { "shadow": "0 0 6px $color.error" } } },
+    "progress": {
+      "track": { "height": 12, "radius": 2, "bg": "$color.bg.input", "shadow": "inset 0 0 0 1px $color.line.main", "padding": 2 },
+      "fill": { "radius": 0, "bg": "$pattern.blocks", "margin": [2, 0] },
+      "label": { "color": "$color.text.secondary" }
+    },
+    "boot": {
+      "bg": "$pattern.app",
+      "title": { "color": "#ffffff", "size": "$size.hero", "weight": 700, "textShadow": "0 0 14px $color.glow, 3px 3px 0 #000000", "tracking": 0.04 },
+      "track": { "height": 14, "radius": 2, "width": 360, "bg": "$color.bg.input", "shadow": "inset 0 0 0 1px $color.line.main" },
+      "fill": { "radius": 0, "bg": "$pattern.blocks", "margin": [3, 0] },
+      "status": { "color": "$color.text.secondary", "textShadow": "1px 1px 0 $color.textShadow" },
+      "log": { "bg": "$color.tintStrong", "border": "1px solid $color.line.main", "radius": 4 },
+      "line": { "color": "$color.text.secondary" }
+    },
+    "log": { "bg": "$color.tintStrong", "border": "1px solid $color.line.soft", "line": { "color": "$color.text.secondary" } },
+    "empty": { "border": "1px dashed $color.line.main", "text": { "textShadow": "1px 1px 0 $color.textShadow" } },
+    "kbd": { "bg": "rgba(255,255,255,.08)", "border": "1px solid $color.line.main", "borderBottom": "2px solid $color.line.main" },
+
+    "transport": {
+      "bg": "$pattern.window", "border": "none", "shadow": "$rim.window", "padding": 5,
+      "button": { "color": "$color.text.secondary", "hover": { "bg": "$pattern.select", "color": "$color.text.primary" }, "on": { "bg": "$pattern.select", "color": "$color.select" } },
+      "display": { "color": "$color.accent", "bg": "$color.bg.sunken", "textShadow": "0 0 8px $color.glow/80", "shadow": "inset 0 0 0 1px $color.line.main" }
+    },
+    "meter": { "bg": "$color.bg.sunken", "border": "1px solid $color.line.main", "radius": 2, "fill": { "bg": "$pattern.meter" } },
+    "pad": {
+      "bg": "$pattern.button", "color": "$color.btnInk", "border": "none", "shadow": "$rim.button", "textShadow": "1px 1px 0 $color.textShadow",
+      "hover": { "shadow": "$rim.glow" },
+      "on": { "bg": "$pattern.gold", "color": "$color.gold.ink", "textShadow": "none", "sub": { "color": "$color.gold.ink" } },
+      "selected": { "shadow": "inset 0 0 0 1px #000000, inset 0 0 0 2px $color.select" },
+      "lit": { "shadow": "$rim.glow" },
+      "sub": { "color": "$color.text.secondary" }
+    }
+  },
+
+  "canvas": {
+    "common": {
+      "marquee": { "color": "#ffffff", "dash": [2, 2] },
+      "marquee.shadow": { "color": "#000000", "dash": [2, 2] },
+      "handle": { "fill": "$color.select", "color": "#000000", "size": 7 },
+      "label": { "fill": "$color.bg.panel/92", "color": "$color.text.primary", "font": "12px $font.ui" },
+      "grid.minor": "$color.accent/10",
+      "grid.major": "$color.accent/25",
+      "text": { "color": "$color.text.secondary", "font": "12px $font.ui" }
+    },
+    "map": {
+      "marker": { "fill": "$color.bg.panel/92", "color": "$color.text.primary", "width": 2, "radius": 3, "font": "12px $font.ui" }
+    },
+    "graph": {
+      "dot": { "fill": "$color.accent/20", "size": 24 },
+      "node": { "fill": "$color.bg.panel", "color": "$color.line.strong", "radius": 5 },
+      "node.title": { "color": "$color.text.primary", "font": "12px $font.ui" },
+      "node.text": { "color": "$color.text.secondary", "font": "12px $font.ui" },
+      "edge.label": { "color": "$color.text.primary", "fill": "$color.bg.sunken", "font": "12px $font.ui" }
+    },
+    "rig": {
+      "viewLabel": { "fill": "rgba(0,0,0,.6)", "color": "#ffffff", "font": "14px $font.ui" },
+      "boneLabel": { "color": "#ffffff", "font": "12px $font.ui" }
+    }
+  }
+}

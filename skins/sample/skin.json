@@ -3,8 +3,8 @@
   "version": 1,
   "id": "sample",
   "name": "Sample: amber",
-  "about": "Shows how a skin is made: it extends the default, changes a few tokens, draws a handful of icons and gives the primary button a 9-slice picture. Delete or copy freely.",
-  "extends": "default",
+  "about": "Shows how a skin is made: it extends claude, changes a few tokens, draws a handful of icons and gives the primary button a 9-slice picture. Delete or copy freely.",
+  "extends": "claude",
 
   "tokens": {
     "color": {

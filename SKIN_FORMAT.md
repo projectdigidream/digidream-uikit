@@ -28,7 +28,7 @@ There are two ways to use a skin:
   "id": "night",
   "name": "Night",
   "about": "One line for people choosing a skin.",
-  "extends": "default",
+  "extends": "claude",
   "fonts":      [ … ],
   "tokens":     { … },
   "modes":      { "dark": { … }, "light": { … } },
@@ -45,18 +45,18 @@ Every key except `format` and `version` is optional. An unknown key is reported 
 
 ## `extends`: start from another skin
 
-`"extends": "default"` names a sibling skin folder. The two are merged key by key:
+`"extends": "claude"` names a sibling skin folder. The two are merged key by key:
 - objects merge;
 - anything else (strings, numbers, arrays) is replaced by the child's value;
 - `null` deletes the inherited key.
 
-Chains are allowed (`a` → `b` → `default`), loops are reported.
+Chains are allowed (`a` → `b` → `claude`), loops are reported.
 
 A file path is resolved against the skin that **wrote** it. A parent's 9-slice picture stays in the parent's folder.
 
 The child looks for an icon in its own folder first, then in each parent in turn. A new skin can therefore draw ten icons and inherit the other two hundred.
 
-Every shipped skin should extend `default`, which defines every key.
+Every shipped skin should extend `claude`, the base skin, which defines every key.
 
 ## `tokens`: named values
 
@@ -85,9 +85,9 @@ Any string anywhere in the skin can contain references:
 
 Tokens may refer to tokens. A missing token or a loop is reported as a problem, never a crash.
 
-### The token names the default skin defines
+### The token names the base skin (`claude`) defines
 
-Tools and canvases refer to these names, so a skin that extends `default` keeps them all. A skin can add its own names freely.
+Tools and canvases refer to these names, so a skin that extends `claude` keeps them all. A skin can add its own names freely.
 
 - **`color.bg.*`**: the surfaces, from back to front:
   - `app`, then `rail`, `panel`, `raised`, `hover`, `input`, `overlay`, `code`;
@@ -115,7 +115,7 @@ Tools and canvases refer to these names, so a skin that extends `default` keeps 
 ```
 
 - **`modes`** lists the colour modes the skin offers. The **first one is the default**. Each value overrides tokens, and only tokens. Components and canvases follow because they refer to tokens.
-  - Mode names are free. A child skin inherits its parent's modes; to offer different ones, delete the parent's with `null`: `"modes": { "dark": null, "light": null, "classic": {}, "night": { … } }` (as `skins/nineties` does).
+  - Mode names are free. A child skin inherits its parent's modes; to offer different ones, delete the parent's with `null`: `"modes": { "dark": null, "light": null, "classic": {}, "night": { … } }` (as `skins/90s` does).
   - To make a component or canvas colour differ between modes, give it a token.
   - A skin with only `dark` simply has no light mode.
 - **`pointers`** works the same way for the input device: `mouse` is the base, and `touch` overrides tokens (bigger hit sizes, bigger text).
@@ -241,7 +241,7 @@ Everything an editor paints itself is listed here, grouped **by idea, not by too
   - `color` (stroke or text), `fill`, `width` (line width), `dash` (e.g. `[5, 3]`);
   - `size` (handle or dot size), `radius`, `font` (a CSS font, e.g. `"600 11px $font.ui"`), `alpha` (0..1, for things drawn faded).
 - A plain colour string sets both `color` and `fill`.
-- The default skin's `canvas` section is the complete list of keys. The testbench's Canvas section draws every one of them.
+- The `claude` skin's `canvas` section is the complete list of keys. The testbench's Canvas section draws every one of them.
 - A tool that asks for a key the skin lacks gets bright magenta, so a gap is seen, not hidden.
 
 ## `palettes`: lists of colours
@@ -284,6 +284,9 @@ Same shape as `docs/UI_STYLES.md`.
 - `family`: what `font.*` tokens name.
 - `file`: relative to the skin.
 - `weight` and `style`: optional.
+- `ligatures: false`: switch ligatures off wherever the skin is worn. Some pixel fonts draw `fi` or `fl` as one odd glyph.
+
+Once the fonts load, `runtime.js` calls `onChange` listeners again, so canvases drawn with the fallback font redraw.
 
 Formats: woff2, woff, ttf, otf. A font that fails to load falls back to the next family in the token's list.
 
