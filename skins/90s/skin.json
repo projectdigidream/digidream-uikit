@@ -506,6 +506,7 @@
       "text": { "color": "$color.canvas.ink", "font": "11px $font.ui" }
     },
     "map": {
+      "cell.edge": { "color": "$color.guide", "width": 4 },
       "room.fill": "$color.canvas.fill",
       "room.line": "$color.canvas.ink",
       "corner.snap": { "fill": "$color.canvas.gridMajor", "size": 5 },

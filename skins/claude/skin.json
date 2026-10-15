@@ -545,6 +545,7 @@
       "path.active": { "color": "$color.pathActive", "width": 2.5 },
       "path.chord": { "color": "$color.path/45", "dash": [3, 3] },
       "cell": { "color": "$color.text.secondary", "width": 1 },
+      "cell.edge": { "color": "$color.accent", "width": 4 },
       "neighbour": { "fill": "rgba(0,0,0,.5)" },
       "seam.joined": { "color": "$color.ok", "width": 2 },
       "seam.oneway": { "color": "$color.warn", "width": 2 },
