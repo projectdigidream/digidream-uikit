@@ -4,6 +4,7 @@
 
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { merge, flatten, makeResolver, parseColor, loadChain, compile, componentCss, declarations } from '../lib/skin.js';
@@ -169,6 +170,31 @@ await test('the claude skin (the base) defines every canvas key the testbench dr
   const def = JSON.parse(await readFile(join(ROOT, 'skins/claude/skin.json'), 'utf8'));
   const missing = [...used].filter((k) => { const [g, ...rest] = k.split('.'); return !(rest.join('.') in (def.canvas[g] ?? {})); });
   assert.deepEqual(missing, []);
+});
+
+await test('no icon a tool shows is a colour emoji: every one is drawn by claude, the base, or is a flat glyph', async () => {
+  const cat = JSON.parse(await readFile(join(ROOT, 'catalog/icons.json'), 'utf8'));
+  const drawn = (id) => { const [g, n] = id.split('.'); return existsSync(join(ROOT, 'skins/claude/icons', g, `${n}.svg`)); };
+  // a colour emoji: an astral pictograph, or a symbol shown as one by default
+  const EMOJI = new Set([...'⌚⌛⏩⏪⏫⏬⏰⏳⏱⏭⏻◽◾☔☕♈♉♊♋♌♍♎♏♐♑♒♓♿⚓⚡⚪⚫⚽⚾⛄⛅⛎⛔⛪⛲⛳⛵⛺⛽✅✊✋✨❌❎❓❔❕❗➕➖➗➰➿⬛⬜⭐⭕☠☄❤❄☀⚔⚙✂✏✔☝⬇⬡'].map((c) => c.codePointAt(0)));
+  const colour = (g) => [...g].some((c) => c.codePointAt(0) >= 0x1F000 || EMOJI.has(c.codePointAt(0)));
+  const bad = cat.groups.filter((g) => g.id !== 'brand').flatMap((g) => g.icons.map((i) => [`${g.id}.${i[0]}`, i[2] ?? ''])).filter(([id, gl]) => colour(gl) && !drawn(id)).map(([id, gl]) => `${id} ${gl}`);
+  assert.deepEqual(bad, []);
+});
+
+await test('a dark ground takes an icon\'s drawing for one, from the skin that drew the icon, and a light ground the plain one', async () => {
+  const { iconUrlsOf } = await import('../lib/skin.js');
+  const { skinView } = await import('../lib/runtime.js');
+  const chain = [{ base: 'child/', json: { icons: {} } }, { base: 'parent/', json: { icons: {} } }];
+  const files = [new Set(['child/icons/a/x.svg']), new Set(['parent/icons/a/x.svg', 'parent/icons-dark/a/x.svg', 'parent/icons/a/y.svg', 'parent/icons-dark/a/y.svg'])];
+  const { urls, urlsDark } = iconUrlsOf(['a.x', 'a.y'], chain, {}, (i, c) => files[i].has(c));
+  assert.equal(urls['a.x'], 'child/icons/a/x.svg');
+  assert.equal(urlsDark['a.x'], undefined, 'the child drew x and no dark x: the parent\'s dark x is of another drawing');
+  assert.equal(urlsDark['a.y'], 'parent/icons-dark/a/y.svg');
+  const compiled = { modes: ['day', 'night'], pointers: ['mouse'], canvas: {}, palettes: {}, tokens: { 'day/mouse': { 'color.bg.app': '#f0f0f0' }, 'night/mouse': { 'color.bg.app': '#101010' } }, icons: { urls, urlsDark } };
+  assert.equal(skinView(compiled, 'night', 'mouse').iconUrl('a.y'), 'parent/icons-dark/a/y.svg');
+  assert.equal(skinView(compiled, 'day', 'mouse').iconUrl('a.y'), 'parent/icons/a/y.svg');
+  assert.equal(skinView(compiled, 'night', 'mouse').iconUrl('a.x'), 'child/icons/a/x.svg');
 });
 
 console.log(`${n} skin tests passed`);

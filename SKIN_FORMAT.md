@@ -271,6 +271,8 @@ Values can be token references.
 - **`tint: false`:** the picture is shown as drawn, multi-colour. This suits pixel-art icons.
 - **`keepColor`:** a list of ids, or whole groups as `"group.*"`, shown as drawn while the rest of the set is tinted. Use it when a set mixes plain glyphs (play, arrows) with colour pictures (folder, floppy, warning sign).
 - **`grid`, `stroke`:** what the set is drawn at, for people drawing new icons. A 24×24 viewBox and a 1.75 stroke keep the set even.
+- **For a dark ground:** an icon shown as drawn may have a second drawing at `<dir>-dark/<group>/<name>.svg` (`darkDir` to name the folder), used when the mode's `color.bg.app` is dark -- a white outline where the plain one is black, say. It is taken only from the skin that drew the icon itself. A tinted icon needs none: it is painted in the text colour.
+- **Drawn for you:** `tools/make_icons.mjs` gives every shipped skin the icons it has none of, in its own look, from Paper's line drawings and `icons/lines.js`: claude and Paper as lines, 90s and PS1 as colour pixels (with drawings for a dark ground), Aero as glass. It writes only files it made (they say `<!-- make_icons -->`), never one drawn by hand, and adds the colour ones to `keepColor`. Run it from a directory with puppeteer-core installed: `node /abs/path/uikit/tools/make_icons.mjs`.
 
 SVG is preferred. PNG works too (`"ext": "png"`); draw it at least 2× the largest size it is shown at (`size.icon` × 2).
 

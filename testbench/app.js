@@ -2,7 +2,7 @@
 // disk), compiles it, and shows every element of the kit wearing it. It
 // reloads by itself when anything under skins/ changes (served mode).
 
-import { loadChain, compile, iconCandidates } from '../lib/skin.js';
+import { loadChain, compile, iconCandidates, iconCandidatesDark } from '../lib/skin.js';
 import { installCss, skinView, iconTinted, whenFontsReady } from '../lib/runtime.js';
 import { bake } from '../lib/bake.js';
 import * as kit from '../lib/kit.js';
@@ -61,17 +61,25 @@ async function filesOf (link, source) {
 async function iconUrls (chain, merged, source) {
   const ids = state.catalog.groups.flatMap((g) => g.icons.map(([n]) => `${g.id}.${n}`));
   const lists = await Promise.all(chain.map((l) => filesOf(l, source)));
-  const urls = {};
+  const urls = {}
+  const urlsDark = {}
   for (const id of ids) {
     const cands = iconCandidates(id, chain, merged);
     if (merged.icons?.files?.[id]) { urls[id] = cands[0]; continue; }
     for (let i = 0; i < chain.length; i++) {
       const rel = cands[i].slice(chain[i].base.length);
       const list = lists[i];
-      if (list ? list.has(rel) : await probe(source.url(cands[i]))) { urls[id] = source.url(cands[i]); break; }
+      if (list ? list.has(rel) : await probe(source.url(cands[i]))) {
+        urls[id] = source.url(cands[i]);
+        // its drawing for a dark ground, from the same skin only
+        const dark = iconCandidatesDark(id, chain)[i];
+        const drel = dark.slice(chain[i].base.length);
+        if (list ? list.has(drel) : await probe(source.url(dark))) urlsDark[id] = source.url(dark);
+        break;
+      }
     }
   }
-  return urls;
+  return { urls, urlsDark };
 }
 const probe = (url) => new Promise((ok) => { const im = new Image(); im.onload = () => ok(true); im.onerror = () => ok(false); im.src = url; });
 
@@ -83,7 +91,7 @@ async function load () {
   const warnings = [];
   const { merged, chain } = await loadChain(name, source, warnings);
   const compiled = compile(merged, { warnings });
-  compiled.icons = { ...compiled.icons, urls: await iconUrls(chain, merged, source) };
+  compiled.icons = { ...compiled.icons, ...(await iconUrls(chain, merged, source)) };
   state.compiled = compiled;
   state.chain = chain;
   installCss(compiled);

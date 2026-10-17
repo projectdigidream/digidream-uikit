@@ -11,7 +11,7 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadChain, compile, iconCandidates } from './lib/skin.js';
+import { loadChain, compile, iconUrlsOf } from './lib/skin.js';
 import { bake } from './lib/bake.js';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -41,17 +41,9 @@ if (warnings.length) {
 // which icons exist, child skin first
 const catalog = JSON.parse(await readFile(join(ROOT, 'catalog/icons.json'), 'utf8'));
 const files = await Promise.all(chain.map(async (l) => new Set((await walk(join(ROOT, l.base))).map((f) => relative(ROOT, f)))));
-const urls = {};
-for (const g of catalog.groups) {
-  for (const [n] of g.icons) {
-    const id = `${g.id}.${n}`;
-    const cands = iconCandidates(id, chain, merged);
-    if (merged.icons?.files?.[id]) { urls[id] = cands[0]; continue; }
-    const hit = cands.find((c, i) => files[i].has(c));
-    if (hit) urls[id] = hit;
-  }
-}
-compiled.icons = { ...compiled.icons, urls };
+const ids = catalog.groups.flatMap((g) => g.icons.map(([n]) => `${g.id}.${n}`));
+const { urls, urlsDark } = iconUrlsOf(ids, chain, merged, (i, c) => files[i].has(c));
+compiled.icons = { ...compiled.icons, urls, urlsDark };
 
 const { bundle, missing } = await bake(compiled, (url) => readFile(join(ROOT, url)).then((b) => new Uint8Array(b)).catch(() => null));
 if (missing.length) { console.error(`missing files:\n  ${missing.join('\n  ')}`); process.exit(1); }
