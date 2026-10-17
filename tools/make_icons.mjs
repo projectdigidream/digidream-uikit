@@ -141,36 +141,24 @@ function colourise (mask, [base, lit, shaded], outline, { rim = false } = {}) {
   return out
 }
 
-/** Colour pixels as rows of runs. */
+/** Colour pixels as one path per colour, a short run per row ("M3 4h5v1H3z"): crisp at any size. */
 function colourSvg (px) {
-  const rects = []
+  const runs = new Map()
   for (let y = 0; y < 16; y++) {
     for (let x = 0; x < 16;) {
       const c = px[y * 16 + x]
       if (!c) { x++; continue }
       let w = 1
       while (x + w < 16 && px[y * 16 + x + w] === c) w++
-      rects.push(`<rect x="${x}" y="${y}" width="${w}" height="1" fill="${c}"/>`)
+      runs.set(c, (runs.get(c) ?? '') + `M${x} ${y}h${w}v1H${x}z`)
       x += w
     }
   }
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">${MARK}${rects.join('')}</svg>\n`
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">${MARK}${[...runs].map(([c, d]) => `<path fill="${c}" d="${d}"/>`).join('')}</svg>\n`
 }
 
-/** Pixels, as rows of runs: a 16 x 16 mask drawn as rects (crisp at any size, tinted by the kit). */
-function pixelSvg (mask, colour) {
-  const rects = []
-  for (let y = 0; y < 16; y++) {
-    for (let x = 0; x < 16;) {
-      if (!mask[y * 16 + x]) { x++; continue }
-      let w = 1
-      while (x + w < 16 && mask[y * 16 + x + w]) w++
-      rects.push(`<rect x="${x}" y="${y}" width="${w}" height="1" fill="${colour}"/>`)
-      x += w
-    }
-  }
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">${MARK}${rects.join('')}</svg>\n`
-}
+/** A 16 x 16 mask in one colour (tinted by the kit). */
+const pixelSvg = (mask, colour) => colourSvg(Array.from(mask, (on) => (on ? colour : null)))
 
 /** Each line drawing rasterised at 16 px in Chrome, its alpha thresholded: id -> Uint8Array(256). */
 async function rasterise (ids, stroke, threshold) {
