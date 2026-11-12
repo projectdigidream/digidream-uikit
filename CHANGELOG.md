@@ -5,10 +5,12 @@ anything not released yet is under **Unreleased**.
 
 ## Unreleased
 
+## 0.1.1 -- 2026-11-12
+
 ### Added
 
-- **Every skin draws every icon that was a colour emoji** (the playtest of
-  2026-10-17: flat glyphs only, in every tool). claude, the base, drew none,
+- **Every skin draws every icon that was a colour emoji** (flat glyphs only,
+  in every tool). claude, the base, drew none,
   so every tool in its default look showed emoji; it and Paper draw them as
   lines now, 90s and PS1 as colour pixel art, Aero as glass -- each in its own
   look (tools/make_icons.mjs, from Paper's drawings and icons/lines.js).
